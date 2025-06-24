@@ -1,5 +1,5 @@
 ---
-import { Button } from './Button';
+import Button from './Button.astro';
 import { Home, ArrowLeft } from 'lucide-react';
 
 interface Props {
@@ -14,8 +14,7 @@ const { currentPage = 'home' } = Astro.props;
     <a href="/" class="text-3xl font-black hover:underline">
       FRANUSI.DEV
     </a>
-    <div class="flex gap-4">
-      {currentPage === 'blog-post' && (
+    <div class="flex gap-4">      {currentPage === 'blog-post' && (
         <Button
           variant="outline"
           className="bg-black text-white border-4 border-black font-black hover:bg-gray-800 shadow-[4px_4px_0px_0px_#000000]"
