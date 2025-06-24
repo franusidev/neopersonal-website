@@ -1,0 +1,43 @@
+---
+import Experience from '../ui/Experience.astro';
+---
+<section class="py-20 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl font-black mb-12 text-center">BATTLE TESTED</h3>
+    <div class="space-y-8">
+      <Experience 
+        title="SENIOR DEVOPS ENGINEER"
+        company="TECHCORP INC."
+        years="2020-NOW"
+        color="bg-yellow-300"
+        points={[
+          'REDUCED DEPLOYMENT TIME BY 80% WITH K8S AUTOMATION',
+          'MANAGED 500+ MICROSERVICES ACROSS 3 CLOUD PROVIDERS',
+          'ACHIEVED 99.99% UPTIME FOR CRITICAL SERVICES'
+        ]}
+      />
+      <Experience 
+        title="DEVOPS ENGINEER"
+        company="STARTUP LABS"
+        years="2018-2020"
+        color="bg-green-400"
+        points={[
+          'BUILT CI/CD PIPELINES FROM SCRATCH',
+          'MIGRATED LEGACY APPS TO CONTAINERIZED ARCHITECTURE',
+          'IMPLEMENTED INFRASTRUCTURE AS CODE WITH TERRAFORM'
+        ]}
+      />
+      <Experience 
+        title="JUNIOR DEVOPS ENGINEER"
+        company="ENTERPRISE SOLUTIONS"
+        years="2016-2018"
+        color="bg-blue-400"
+        points={[
+          'MANAGED 200+ LINUX SERVERS',
+          'AUTOMATED BACKUP & DISASTER RECOVERY',
+          'REDUCED INCIDENT RESPONSE TIME BY 60%'
+        ]}
+      />
+    </div>
+  </div>
+</section>

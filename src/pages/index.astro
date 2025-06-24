@@ -1,0 +1,95 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroSection from '../components/sections/HeroSection.astro';
+import SkillsSection from '../components/sections/SkillsSection.astro';
+import ExperienceSection from '../components/sections/ExperienceSection.astro';
+import Navbar from '../components/ui/Navbar.astro';
+import { Button } from '../components/ui/Button';
+import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card';
+import { Github, Linkedin, Mail, ExternalLink, Server, Database, Cloud, GitBranch, Shield, Zap } from 'lucide-react';
+---
+
+<Layout title="FRANUSI.DEV">
+  <div class="min-h-screen bg-yellow-300 font-mono">
+    <Navbar currentPage="home" />
+
+    <HeroSection />
+    <SkillsSection />
+    <ExperienceSection />
+
+    <!-- Projects Section -->
+    <section class="py-20 px-6 bg-black">
+      <div class="max-w-6xl mx-auto">
+        <h3 class="text-5xl font-black text-white mb-12 text-center">PROJECTS THAT DON'T SUCK</h3>
+        <div class="grid md:grid-cols-2 gap-8">
+          <Card className="border-8 border-white bg-red-500 text-white transform -rotate-1 shadow-[8px_8px_0px_0px_#ffffff]">
+            <CardHeader>
+              <CardTitle className="text-2xl font-black">KUBERNETES AUTOSCALER</CardTitle>
+            <CardContent>
+              <p class="font-bold mb-4">CUSTOM HPA THAT SCALES BASED ON BUSINESS METRICS, NOT JUST CPU</p>
+              <div class="flex gap-2 mb-4">
+                <span class="bg-white text-black px-2 py-1 text-sm font-bold">GO</span>
+                <span class="bg-white text-black px-2 py-1 text-sm font-bold">K8S</span>
+                <span class="bg-white text-black px-2 py-1 text-sm font-bold">PROMETHEUS</span>
+              </div>
+              <Button
+                variant="outline"
+                className="bg-white text-black border-4 border-white font-black hover:bg-gray-100"
+              >
+                <ExternalLink className="mr-2" />
+                VIEW PROJECT
+              </Button>
+            </CardContent>
+          </Card>
+
+          <Card className="border-8 border-white bg-green-500 text-white transform rotate-1 shadow-[8px_8px_0px_0px_#ffffff]">
+            <CardHeader>
+              <CardTitle className="text-2xl font-black">TERRAFORM MODULES</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p class="font-bold mb-4">REUSABLE INFRASTRUCTURE MODULES FOR AWS, GCP & AZURE</p>
+              <div class="flex gap-2 mb-4">
+                <span class="bg-white text-black px-2 py-1 text-sm font-bold">TERRAFORM</span>
+                <span class="bg-white text-black px-2 py-1 text-sm font-bold">AWS</span>
+                <span class="bg-white text-black px-2 py-1 text-sm font-bold">GCP</span>
+              </div>
+              <Button
+                variant="outline"
+                className="bg-white text-black border-4 border-white font-black hover:bg-gray-100"
+              >
+                <ExternalLink className="mr-2" />
+                VIEW PROJECT
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20 px-6 bg-yellow-300">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="bg-white border-8 border-black p-12 transform -rotate-1 shadow-[12px_12px_0px_0px_#000000]">
+          <h3 class="text-5xl font-black mb-6">LET'S BUILD SOMETHING</h3>
+          <p class="text-2xl font-bold mb-8">NEED SOMEONE WHO CAN MAKE YOUR INFRASTRUCTURE BULLETPROOF?</p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <Button className="bg-black text-white border-4 border-black font-black text-lg px-8 py-4 hover:bg-gray-800">
+              <Mail className="mr-2" />
+              francisco@devops.engineer
+            </Button>
+            <Button className="bg-green-500 text-white border-4 border-black font-black text-lg px-8 py-4 hover:bg-green-600">
+              DOWNLOAD RESUME
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white p-6 border-t-8 border-white">
+      <div class="max-w-6xl mx-auto text-center">
+        <p class="font-black text-xl">© 2024 FRANUSI.DEV - MAKING SERVERS HAPPY SINCE 2020</p>
+      </div>
+    </footer>
+  </div>
+</Layout>

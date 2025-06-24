@@ -1,0 +1,24 @@
+---
+interface Props {
+  title: string;
+  company: string;
+  years: string;
+  color: string;
+  points: string[];
+}
+const { title, company, years, color, points } = Astro.props;
+---
+<div class={`${color} border-8 border-black p-8 transform rotate-1 shadow-[12px_12px_0px_0px_#000000]`}>
+  <div class="flex justify-between items-start mb-4">
+    <div>
+      <h4 class="text-3xl font-black">{title}</h4>
+      <p class="text-xl font-bold">{company}</p>
+    </div>
+    <span class="bg-black text-white px-4 py-2 font-black">{years}</span>
+  </div>
+  <ul class="text-lg font-bold space-y-2">
+    {points.map(point => (
+      <li>• {point}</li>
+    ))}
+  </ul>
+</div>

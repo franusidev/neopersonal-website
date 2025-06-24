@@ -1,0 +1,28 @@
+---
+import { Card, CardContent, CardHeader, CardTitle } from './Card';
+interface Props {
+  title: string;
+  icon: any;
+  color: string;
+  techs: string[];
+}
+// Rename icon prop to Icon and render it as a component
+const { title, icon: Icon, color, techs } = Astro.props;
+---
+<Card className="border-8 border-black bg-white transform -rotate-1 shadow-[8px_8px_0px_0px_#000000]">
+  <CardHeader>
+    <CardTitle className="flex items-center gap-2 text-2xl font-black">
+      <Icon class="w-8 h-8" />
+      {title}
+    </CardTitle>
+  </CardHeader>
+  <CardContent>
+    <div class="flex flex-wrap gap-2">
+      {techs.map((tech) => (
+        <span class={`${color} text-white px-3 py-1 font-bold text-sm`}>
+          {tech}
+        </span>
+      ))}
+    </div>
+  </CardContent>
+</Card>

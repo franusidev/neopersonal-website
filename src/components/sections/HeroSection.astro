@@ -1,0 +1,46 @@
+---
+import { Button } from '../ui/Button';
+import { Github, Linkedin, Mail } from 'lucide-react';
+---
+
+<section class="py-12 px-4 sm:py-16 sm:px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="bg-white border-8 border-black p-6 sm:p-10 md:p-12 transform rotate-1 shadow-[12px_12px_0px_0px_#000000]">
+      <div class="flex flex-col-reverse lg:flex-row items-center lg:items-start gap-0 lg:gap-0">
+        <div class="flex-1 w-full text-center lg:text-left">
+          <h2 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-4 sm:mb-6 leading-none">
+            DEVOPS
+            <br />
+            <span class="text-red-500">ENGINEER</span>
+          </h2>
+          <p class="text-lg sm:text-2xl font-bold mb-6 max-w-2xl mx-auto lg:mx-0">
+            I BUILD, DEPLOY & SCALE INFRASTRUCTURE THAT DOESN'T BREAK AT 3AM
+          </p>
+          <div class="flex flex-wrap justify-center lg:justify-start gap-3 md:gap-4">
+            <Button className="bg-black text-white border-4 border-black font-black text-base md:text-lg px-6 md:px-8 py-3 md:py-4 hover:bg-gray-800">
+              <Github className="mr-2 w-4 h-4 md:w-5 md:h-5" />
+              GITHUB
+            </Button>
+            <Button className="bg-blue-500 text-white border-4 border-black font-black text-base md:text-lg px-6 md:px-8 py-3 md:py-4 hover:bg-blue-600">
+              <Linkedin className="mr-2 w-4 h-4 md:w-5 md:h-5" />
+              LINKEDIN
+            </Button>
+            <Button className="bg-green-500 text-white border-4 border-black font-black text-base md:text-lg px-6 md:px-8 py-3 md:py-4 hover:bg-green-600">
+              <Mail className="mr-2 w-4 h-4 md:w-5 md:h-5" />
+              EMAIL
+            </Button>
+          </div>
+        </div>
+        <div class="flex-shrink-0 flex justify-center items-center mb-6 lg:mb-0">
+          <div class="-rotate-1">
+            <img 
+              src="/caricature-profile-picture.png" 
+              alt="Francisco's profile caricature" 
+              class="w-52 h-52 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

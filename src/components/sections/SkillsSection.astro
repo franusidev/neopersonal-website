@@ -1,0 +1,18 @@
+---
+import SkillCard from '../ui/SkillCard.astro';
+import { Cloud, Server, GitBranch, Database, Zap, Shield,FileCode } from 'lucide-react';
+---
+
+<section class="py-20 px-6 bg-red-500">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl font-black text-white mb-12 text-center">MY ARSENAL</h3>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <SkillCard title="CLOUD CERTIFICATIONS" icon={Cloud} color="bg-black" techs={["DEVOPS ENGINEER EXPERT (AZ-400)", "AZURE DEVELOPER (AZ-204)", "AWS SOLUTIONS ARCHITECT - ASSOCIATE"]} />
+      <SkillCard title="CI/CD" icon={GitBranch} color="bg-green-500" techs={["AZURE DEVOPS", "GITHUB ACTIONS", "JENKINS","TERRAFORM","BICEP"]} />
+      <SkillCard title="CONTAINERS" icon={Server} color="bg-blue-500" techs={["DOCKER", "KUBERNETES", "HELM", "ARGO CD","AKS","K3S","INGRESS"]} />
+      <SkillCard title="DEVELOPMENT" icon={FileCode}  color="bg-red-500" techs={["PYTHON","BASH","TYPESCRIPT",".NET","JAVA","ANDROID","CYPRESS"]} />
+      <SkillCard title="MONITORING" icon={Zap} color="bg-orange-500" techs={["AZURE MONITOR","PROMETHEUS", "ELASTICSEARCH", "GRAFANA"]} />
+      <SkillCard title="SECURITY" icon={Shield} color="bg-purple-500" techs={["TRIVY","SONARQUBE","GITHUB ADVANCED SECURITY","KIUWAN","TFSEC"]} />
+    </div>
+  </div>
+</section>
