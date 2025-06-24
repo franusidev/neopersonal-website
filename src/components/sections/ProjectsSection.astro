@@ -1,54 +1,25 @@
 ---
-import { Button } from '../ui/Button';
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/Card';
-import { ExternalLink } from 'lucide-react';
+import ProjectCard from '../ui/ProjectCard.astro';
 ---
 
 <section class="py-20 px-6 bg-black">
   <div class="max-w-6xl mx-auto">
-    <h3 class="text-5xl font-black text-white mb-12 text-center">PROJECTS THAT DON'T SUCK</h3>
-    <div class="grid md:grid-cols-2 gap-8">
-      <Card className="border-8 border-white bg-red-500 text-white transform -rotate-1 shadow-[8px_8px_0px_0px_#ffffff]">
-        <CardHeader>
-          <CardTitle className="text-2xl font-black">KUBERNETES AUTOSCALER</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p class="font-bold mb-4">CUSTOM HPA THAT SCALES BASED ON BUSINESS METRICS, NOT JUST CPU</p>
-          <div class="flex gap-2 mb-4">
-            <span class="bg-white text-black px-2 py-1 text-sm font-bold">GO</span>
-            <span class="bg-white text-black px-2 py-1 text-sm font-bold">K8S</span>
-            <span class="bg-white text-black px-2 py-1 text-sm font-bold">PROMETHEUS</span>
-          </div>
-          <Button
-            variant="outline"
-            className="bg-white text-black border-4 border-white font-black hover:bg-gray-100"
-          >
-            <ExternalLink className="mr-2" />
-            VIEW PROJECT
-          </Button>
-        </CardContent>
-      </Card>
+    <h3 class="text-5xl font-black text-white mb-12 text-center">PROJECTS THAT DON'T SUCK</h3>    <div class="grid md:grid-cols-2 gap-8">
+      <ProjectCard
+        title="KUBERNETES AUTOSCALER"
+        description="CUSTOM HPA THAT SCALES BASED ON BUSINESS METRICS, NOT JUST CPU"
+        technologies={["GO", "K8S", "PROMETHEUS"]}
+        bgColor="bg-red-500"
+        rotation="-rotate-1"
+      />
 
-      <Card className="border-8 border-white bg-green-500 text-white transform rotate-1 shadow-[8px_8px_0px_0px_#ffffff]">
-        <CardHeader>
-          <CardTitle className="text-2xl font-black">TERRAFORM MODULES</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p class="font-bold mb-4">REUSABLE INFRASTRUCTURE MODULES FOR AWS, GCP & AZURE</p>
-          <div class="flex gap-2 mb-4">
-            <span class="bg-white text-black px-2 py-1 text-sm font-bold">TERRAFORM</span>
-            <span class="bg-white text-black px-2 py-1 text-sm font-bold">AWS</span>
-            <span class="bg-white text-black px-2 py-1 text-sm font-bold">GCP</span>
-          </div>
-          <Button
-            variant="outline"
-            className="bg-white text-black border-4 border-white font-black hover:bg-gray-100"
-          >
-            <ExternalLink className="mr-2" />
-            VIEW PROJECT
-          </Button>
-        </CardContent>
-      </Card>
+      <ProjectCard
+        title="TERRAFORM MODULES"
+        description="REUSABLE INFRASTRUCTURE MODULES FOR AWS, GCP & AZURE"
+        technologies={["TERRAFORM", "AWS", "GCP"]}
+        bgColor="bg-green-500"
+        rotation="rotate-1"
+      />
     </div>
   </div>
 </section>
