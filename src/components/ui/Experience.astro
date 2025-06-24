@@ -5,14 +5,24 @@ interface Props {
   years: string;
   color: string;
   points: string[];
+  rotation?: string;
+  image?: string;
 }
-const { title, company, years, color, points } = Astro.props;
+const { title, company, years, color, points, rotation = "rotate-1", image } = Astro.props;
 ---
-<div class={`${color} border-8 border-black p-8 transform rotate-1 shadow-[12px_12px_0px_0px_#000000]`}>
-  <div class="flex justify-between items-start mb-4">
-    <div>
-      <h4 class="text-3xl font-black">{title}</h4>
-      <p class="text-xl font-bold">{company}</p>
+<div class={`${color} border-8 border-black p-8 transform ${rotation} shadow-[12px_12px_0px_0px_#000000]`}>  <div class="flex justify-between items-start mb-4">
+    <div class="flex items-center gap-4">
+      {image && (
+        <img 
+          src={image} 
+          alt={`${company} logo`} 
+          class="w-16 h-16 object-contain bg-white rounded-lg p-2 border-4 border-black"
+        />
+      )}
+      <div>
+        <h4 class="text-3xl font-black">{title}</h4>
+        <p class="text-xl font-bold">{company}</p>
+      </div>
     </div>
     <span class="bg-black text-white px-4 py-2 font-black">{years}</span>
   </div>

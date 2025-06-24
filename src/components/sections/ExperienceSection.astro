@@ -1,41 +1,66 @@
 ---
 import Experience from '../ui/Experience.astro';
 ---
-<section class="py-20 px-6 bg-white">
-  <div class="max-w-6xl mx-auto">
+<section class="py-20 px-6 bg-white">  <div class="max-w-6xl mx-auto">
     <h3 class="text-5xl font-black mb-12 text-center">BATTLE TESTED</h3>
-    <div class="space-y-8">
-      <Experience 
-        title="SENIOR DEVOPS ENGINEER"
-        company="TECHCORP INC."
-        years="2020-NOW"
-        color="bg-yellow-300"
-        points={[
-          'REDUCED DEPLOYMENT TIME BY 80% WITH K8S AUTOMATION',
-          'MANAGED 500+ MICROSERVICES ACROSS 3 CLOUD PROVIDERS',
-          'ACHIEVED 99.99% UPTIME FOR CRITICAL SERVICES'
-        ]}
-      />
+    <div class="space-y-16">      
       <Experience 
         title="DEVOPS ENGINEER"
-        company="STARTUP LABS"
-        years="2018-2020"
-        color="bg-green-400"
+        company="ATOS"
+        years="2022-NOW"
+        color="bg-yellow-300"
+        rotation="rotate-1"
+        image="/experience/atos_logo.jpg"
         points={[
-          'BUILT CI/CD PIPELINES FROM SCRATCH',
-          'MIGRATED LEGACY APPS TO CONTAINERIZED ARCHITECTURE',
-          'IMPLEMENTED INFRASTRUCTURE AS CODE WITH TERRAFORM'
+          'FULL-TIME DEVOPS ENGINEER WITH 3+ YEARS EXPERIENCE',
+          'KUBERNETES & CLOUD INFRASTRUCTURE SPECIALIST',
+          'AUTOMATED CI/CD PIPELINES & DEPLOYMENT PROCESSES'
         ]}
       />
       <Experience 
-        title="JUNIOR DEVOPS ENGINEER"
-        company="ENTERPRISE SOLUTIONS"
-        years="2016-2018"
-        color="bg-blue-400"
+        title="CLOUD CONSULTANT ASSOCIATE"
+        company="ACCENTURE"
+        years="2021-2022"
+        color="bg-green-400"
+        rotation="-rotate-1"
         points={[
-          'MANAGED 200+ LINUX SERVERS',
-          'AUTOMATED BACKUP & DISASTER RECOVERY',
-          'REDUCED INCIDENT RESPONSE TIME BY 60%'
+          '11 MONTHS OF CLOUD CONSULTING EXPERIENCE',
+          'CLOUD MIGRATION & INFRASTRUCTURE OPTIMIZATION',
+          'WORKED WITH MULTI-CLOUD ENVIRONMENTS'
+        ]}
+      />
+      <Experience 
+        title="PROGRAMADOR FULL STACK"
+        company="SEGURIDAD INTEGRAL SECOEX"
+        years="2021"
+        color="bg-blue-400"
+        rotation="rotate-1"
+        points={[
+          'DEVELOPMENT OF ANDROID APPLICATION FOR ENTERPRISE USAGE',
+          'WEB APPLICATION DEVELOPMENT USING DOCKER, FLASK & DIRECTUSCMS'
+        ]}
+      />
+      <Experience 
+        title="CONSULTOR INFORMÁTICO"
+        company="SEF"
+        years="2020-2021"
+        color="bg-red-400"
+        rotation="-rotate-1"
+        points={[
+          'E-COMMERCE WEB DEVELOPMENT & CLOUD MIGRATION',
+          'PART-TIME CONSULTING ROLE'
+        ]}
+      />
+      <Experience 
+        title="APRENDIZ DEVOPS"
+        company="SNGULAR"
+        years="2020"
+        color="bg-purple-400"
+        rotation="rotate-1"
+        points={[
+          '5 MONTHS DEVOPS INTERNSHIP PROGRAM',
+          'AWS, SERVERLESS & ADVANCED GIT TRAINING',
+          'CI/CD PIPELINES MENTORSHIP PROGRAM'
         ]}
       />
     </div>
