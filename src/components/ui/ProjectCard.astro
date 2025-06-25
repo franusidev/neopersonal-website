@@ -29,12 +29,16 @@ const { title, description, technologies, bgColor, rotation, projectUrl } = Astr
         <span class="bg-white text-black px-2 py-1 text-sm font-bold">{tech}</span>
       ))}
     </div>
-    <Button
-      variant="outline"
-      className="bg-white text-black border-4 border-white font-black hover:bg-gray-100"
-    >
-      <ExternalLink className="mr-2" />
-      VIEW PROJECT
-    </Button>
+    {projectUrl && (
+      <a href={projectUrl} target="_blank" rel="noopener noreferrer">
+      <Button
+        variant="outline"
+        className="bg-white text-black border-4 border-white font-black hover:bg-gray-100"
+      >
+        <ExternalLink className="mr-2" />
+        VIEW PROJECT
+      </Button>
+      </a>
+    )}
   </CardContent>
 </Card>

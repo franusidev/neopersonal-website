@@ -4,21 +4,24 @@ import ProjectCard from '../ui/ProjectCard.astro';
 
 <section class="py-20 px-6 bg-black">
   <div class="max-w-6xl mx-auto">
-    <h3 class="text-5xl font-black text-white mb-12 text-center">PROJECTS THAT DON'T SUCK</h3>    <div class="grid md:grid-cols-2 gap-8">
+    <h3 class="text-5xl font-black text-white mb-12 text-center">MY PUBLIC PROJECTS THAT DON'T SUCK</h3>    
+    <div class="grid md:grid-cols-2 gap-8">
       <ProjectCard
-        title="KUBERNETES AUTOSCALER"
-        description="CUSTOM HPA THAT SCALES BASED ON BUSINESS METRICS, NOT JUST CPU"
-        technologies={["GO", "K8S", "PROMETHEUS"]}
+        title="SERVERLESS EDGE COMPUTING APPLICATION"
+        description="A SERVERLESS EDGE COMPUTING POC MADE FOR UNEX USING K3S AND OPENFAAS TO PROCESS REAL-TIME BIOMETRIC DATA ON THE EDGE"
+        technologies={["ANSIBLE","K8S", "PROMETHEUS","GRAFANA", "INFLUXDB", "ANDROID", "MQTT" ]}
         bgColor="bg-red-500"
         rotation="-rotate-1"
+        projectUrl="https://github.com/franusidev/biometric-sensors/tree/master"
       />
 
       <ProjectCard
-        title="TERRAFORM MODULES"
-        description="REUSABLE INFRASTRUCTURE MODULES FOR AWS, GCP & AZURE"
-        technologies={["TERRAFORM", "AWS", "GCP"]}
+        title="[WIP] AZURE DEVOPS EXTENSION FOR DATABRICKS"
+        description="A CUSTOM AZURE DEVOPS EXTENSION FOR DATABRICKS TO MANAGE DATABRICKS WORKSPACES, CLUSTERS AND JOBS FROM AZURE DEVOPS"
+        technologies={["AZUREDEVOPS", "TYPESCRIPT", "AZURE", "DATABRICKS"]}
         bgColor="bg-green-500"
         rotation="rotate-1"
+        projectUrl="https://github.com/franusidev/azure-pipelines-tasks-databricks"
       />
     </div>
   </div>
