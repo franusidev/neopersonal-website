@@ -1,0 +1,18 @@
+/* Remove border and yellow background from <code> inside <pre> only */
+pre code {
+  background-color: transparent !important;
+  border: none !important;
+  color: #22d3ee !important; /* Tailwind green-400 for code, adjust as needed */
+  font-weight: inherit !important;
+  padding: 0 !important;
+}
+
+/* Keep inline code highlight and border */
+:not(pre) > code {
+  background-color: #fde047 !important; /* Tailwind yellow-300 */
+  color: #000 !important;
+  border: 2px solid #000 !important;
+  font-weight: 900 !important;
+  padding: 0.25em 0.5em !important;
+  border-radius: 0 !important;
+}

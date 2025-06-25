@@ -1,0 +1,28 @@
+---
+import { getCategoryColor } from '../../lib/blog';
+
+interface Props {
+  category: string;
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const { category, size = 'md' } = Astro.props;
+
+const sizeClasses = {
+  sm: 'px-3 py-1 text-sm border-2',
+  md: 'px-4 py-2 text-sm border-3',
+  lg: 'px-4 py-2 text-base border-4'
+};
+
+const shadowClasses = {
+  sm: 'shadow-[2px_2px_0px_0px_#000000]',
+  md: 'shadow-[3px_3px_0px_0px_#000000]',
+  lg: 'shadow-[4px_4px_0px_0px_#000000]'
+};
+---
+
+<span 
+  class={`${getCategoryColor(category)} text-white font-black border-black ${sizeClasses[size]} ${shadowClasses[size]}`}
+>
+  {category.toUpperCase()}
+</span>

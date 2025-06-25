@@ -2,14 +2,19 @@
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/ui/Navbar.astro';
 import Button from '../../components/ui/Button.astro';
-import { Calendar, Clock, ArrowLeft, Github, ExternalLink, Share2, BookOpen } from 'lucide-react';
-import { getCollection } from 'astro:content';
+import CategoryBadge from '../../components/ui/CategoryBadge.astro';
+import AuthorBio from '../../components/ui/AuthorBio.astro';
+import BlogFooter from '../../components/ui/BlogFooter.astro';
+import { Calendar, Clock, ArrowLeft, Share2, ExternalLink } from 'lucide-react';
+import { getCollection, render } from 'astro:content';
+import { formatBlogDate } from '../../lib/blog';
 import type { CollectionEntry } from 'astro:content';
+import '../../../styles/code-fix.css';
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog');
-  return blogEntries.map(entry => ({
-    params: { slug: entry.slug }, props: { entry },
+  return blogEntries.map((entry: CollectionEntry<'blog'>) => ({
+    params: { slug: entry.id }, props: { entry },
   }));
 }
 
@@ -18,14 +23,7 @@ interface Props {
 }
 
 const { entry } = Astro.props as Props;
-const { Content } = await entry.render();
-
-const categoryColors = {
-  Infrastructure: "bg-red-500",
-  Security: "bg-green-500",
-  Observability: "bg-purple-500", 
-  Automation: "bg-orange-500",
-};
+const { Content } = await render(entry);
 ---
 
 <Layout title={`${entry.data.title} - Francisco Núñez Sierra`}>
@@ -36,20 +34,12 @@ const categoryColors = {
     <article class="py-12 px-6">
       <div class="max-w-4xl mx-auto">
         <!-- Article Header -->
-        <div class="bg-white border-8 border-black p-8 mb-8 shadow-[12px_12px_0px_0px_#000000] transform -rotate-1">
+        <div class="bg-white border-8 border-black p-8 mb-8 shadow-[12px_12px_0px_0px_#000000] transform">          
           <div class="flex items-center gap-4 text-sm font-bold mb-4">
-            <span
-              class={`${categoryColors[entry.data.category]} text-white px-4 py-2 font-black border-3 border-black shadow-[3px_3px_0px_0px_#000000]`}
-            >
-              {entry.data.category.toUpperCase()}
-            </span>
+            <CategoryBadge category={entry.data.category} />
             <span class="flex items-center gap-1">
               <Calendar className="w-4 h-4" />
-              {entry.data.date.toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              }).toUpperCase()}
+              {formatBlogDate(new Date(entry.data.date))}
             </span>
             <span class="flex items-center gap-1">
               <Clock className="w-4 h-4" />
@@ -62,7 +52,7 @@ const categoryColors = {
           </h1>
 
           <div class="flex flex-wrap gap-2 mb-6">
-            {entry.data.tags.map((tag) => (
+            {entry.data.tags.map((tag: string) => (
               <span class="bg-black text-white px-3 py-2 font-bold text-sm border-2 border-black">
                 {tag.toUpperCase()}
               </span>
@@ -87,48 +77,29 @@ const categoryColors = {
               LINKEDIN
             </Button>
           </div>
-        </div>
-
-        <!-- Article Content -->
-        <div class="bg-white border-8 border-black p-8 shadow-[12px_12px_0px_0px_#000000] transform rotate-1">
-          <div class="prose prose-lg max-w-none">
+        </div>        <!-- Article Content -->
+        <div class="bg-white border-8 border-black p-8 shadow-[12px_12px_0px_0px_#000000] transform ">
+          <div class="prose prose-lg max-w-none 
+            prose-headings:font-black prose-headings:text-black prose-headings:mb-6 prose-headings:mt-8
+            prose-p:font-bold prose-p:text-gray-900 prose-p:leading-relaxed
+            prose-strong:text-black prose-strong:font-black
+            prose-code:bg-yellow-300 prose-code:text-black prose-code:font-black prose-code:px-2 prose-code:py-1 prose-code:border-2 prose-code:border-black prose-code:rounded-none prose-code:before:content-none prose-code:after:content-none
+            prose-pre:bg-gray-900 prose-pre:border-8 prose-pre:border-black prose-pre:shadow-[8px_8px_0px_0px_#000000] prose-pre:p-6 prose-pre:overflow-x-auto prose-pre:rounded-none
+            prose-pre:code:bg-transparent prose-pre:code:text-green-400 prose-pre:code:font-mono prose-pre:code:border-0 prose-pre:code:p-0
+            prose-blockquote:border-l-8 prose-blockquote:border-red-500 prose-blockquote:bg-yellow-100 prose-blockquote:font-black prose-blockquote:p-6 prose-blockquote:shadow-[4px_4px_0px_0px_#000000] prose-blockquote:not-italic
+            prose-a:text-red-500 prose-a:font-black prose-a:no-underline hover:prose-a:underline
+            prose-ul:font-bold prose-ul:text-gray-900
+            prose-ol:font-bold prose-ol:text-gray-900
+            prose-li:text-gray-900 prose-li:font-bold
+            prose-hr:border-4 prose-hr:border-black prose-hr:my-8">
             <Content />
           </div>
         </div>
 
-        <!-- Author Bio -->
-        <div class="mt-12 bg-purple-400 border-8 border-black p-8 shadow-[12px_12px_0px_0px_#000000] transform -rotate-1">
-          <div class="flex items-start gap-6">
-            <div class="w-20 h-20 bg-black rounded-full flex items-center justify-center text-white font-black text-2xl border-4 border-white shadow-[4px_4px_0px_0px_#000000]">
-              F
-            </div>
-            <div>
-              <h4 class="text-2xl font-black mb-3">FRANCISCO NÚÑEZ SIERRA</h4>
-              <p class="text-lg font-bold mb-6 leading-relaxed">
-                DEVOPS ENGINEER WITH 4+ YEARS OF EXPERIENCE BUILDING AND SCALING CLOUD INFRASTRUCTURE.
-                PASSIONATE ABOUT AUTOMATION, MONITORING, AND SHARING KNOWLEDGE WITH THE COMMUNITY.
-              </p>
-              <div class="flex gap-4">
-                <Button className="bg-black text-white hover:bg-gray-800 font-black border-4 border-black shadow-[4px_4px_0px_0px_#000000]">
-                  <Github className="mr-2 w-4 h-4" />
-                  GITHUB
-                </Button>
-                <Button className="bg-blue-500 text-white hover:bg-blue-600 font-black border-4 border-black shadow-[4px_4px_0px_0px_#000000]">
-                  <ExternalLink className="mr-2 w-4 h-4" />
-                  LINKEDIN
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <AuthorBio />
       </div>
     </article>
 
-    <!-- Footer -->
-    <footer class="bg-black text-white p-6 mt-12 border-t-8 border-white">
-      <div class="max-w-6xl mx-auto text-center">
-        <p class="font-black text-xl">© 2024 FRANUSI.DEV - SHARING DEVOPS KNOWLEDGE & BEST PRACTICES</p>
-      </div>
-    </footer>
+    <BlogFooter />
   </div>
 </Layout>

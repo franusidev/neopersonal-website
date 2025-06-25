@@ -15,6 +15,43 @@ const { title, description = "DevOps Engineer Portfolio - Building bulletproof i
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
+    <style>
+      /* Custom code block styling */
+      pre[class*="language-"] {
+        background: #1a1a1a !important;
+        border: 8px solid #000 !important;
+        box-shadow: 8px 8px 0px 0px #000 !important;
+        border-radius: 0 !important;
+        padding: 1.5rem !important;
+        margin: 1.5rem 0 !important;
+        overflow-x: auto;
+        font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
+        font-size: 0.9rem !important;
+        line-height: 1.6 !important;
+      }
+      
+      pre[class*="language-"] code {
+        background: transparent !important;
+        color: #00ff41 !important;
+        padding: 0 !important;
+        border: none !important;
+        font-weight: 600 !important;
+      }
+      
+      /* Syntax highlighting tokens */
+      .token.keyword { color: #ff6b6b !important; font-weight: bold !important; }
+      .token.string { color: #4ecdc4 !important; }
+      .token.number { color: #ffe66d !important; }
+      .token.boolean { color: #ff6b6b !important; }
+      .token.comment { color: #6c757d !important; font-style: italic !important; }
+      .token.operator { color: #ffffff !important; }
+      .token.punctuation { color: #ffffff !important; }
+      .token.property { color: #a8e6cf !important; }
+      .token.function { color: #ffd93d !important; font-weight: bold !important; }
+      .token.tag { color: #ff6b6b !important; }
+      .token.attr-name { color: #4ecdc4 !important; }
+      .token.attr-value { color: #ffe66d !important; }
+    </style>
   </head>
   <body class="font-mono">
     <slot />

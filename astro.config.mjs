@@ -12,7 +12,10 @@ export default defineConfig({
   markdown: {
     shikiConfig: {
       theme: 'github-dark',
-      wrap: true
-    }
+      wrap: true,
+      langs: ['javascript', 'typescript', 'bash', 'yaml', 'json', 'hcl', 'dockerfile', 'sql']
+    },
+    remarkPlugins: [],
+    rehypePlugins: []
   }
 });

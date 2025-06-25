@@ -1,26 +1,16 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/ui/Navbar.astro';
-import Button from '../../components/ui/Button.astro';
-import Card from '../../components/ui/Card.astro';
-import CardContent from '../../components/ui/CardContent.astro';
-import CardHeader from '../../components/ui/CardHeader.astro';
-import CardTitle from '../../components/ui/CardTitle.astro';
-import Input from '../../components/ui/Input.astro';
-import { Calendar, Clock, ArrowRight } from 'lucide-react';
-import { getCollection } from 'astro:content';
+import BlogPostCard from '../../components/ui/BlogPostCard.astro';
+import NewsletterSignup from '../../components/sections/NewsletterSignup.astro';
+import BlogFooter from '../../components/ui/BlogFooter.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
 
 const blogPosts = await getCollection('blog');
-const sortedPosts = blogPosts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
-
-const categories = ["All", "Infrastructure", "Security", "Observability", "Automation"];
-
-const categoryColors = {
-  Infrastructure: "bg-red-500",
-  Security: "bg-green-500", 
-  Observability: "bg-purple-500",
-  Automation: "bg-orange-500",
-};
+const sortedPosts = blogPosts.sort(
+  (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+    new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
 ---
 
 <Layout title="DevOps Blog - Francisco Núñez Sierra">
@@ -28,108 +18,27 @@ const categoryColors = {
     <Navbar currentPage="blog" />
 
     <!-- Hero -->
-    <section class="py-16 px-6">
+    <section class="pt-8 px-6">
       <div class="max-w-6xl mx-auto text-center">
-        <div class="bg-white border-8 border-black p-12 transform -rotate-1 shadow-[12px_12px_0px_0px_#000000]">
+        <div class="bg-white border-8 border-black p-4 transform shadow-[12px_12px_0px_0px_#000000]">
           <h1 class="text-6xl md:text-7xl font-black mb-4 leading-none">
-            DEVOPS
-            <br />
-            <span class="text-red-500">BLOG</span>
+            DEVOPS <span class="text-red-500">BLOG</span>
           </h1>
-          <p class="text-xl md:text-2xl font-bold max-w-3xl mx-auto">
-            WHERE I RANT ABOUT TECH AND STUFF
-          </p>
         </div>
       </div>
-    </section>
-
-    <!-- Blog Posts -->
-    <section class="py-12 px-6">
+    </section>    <!-- Blog Posts -->
+    <section class="py-8 px-6">
       <div class="max-w-6xl mx-auto">
         <div class="grid gap-8">
-          {sortedPosts.map((post, index) => (
-            <Card
-              className={`border-8 border-black bg-white hover:shadow-[16px_16px_0px_0px_#000000] transition-all duration-300 transform hover:rotate-0 shadow-[8px_8px_0px_0px_#000000]`}
-            >
-              <CardHeader className="pb-4">
-                <div class="flex justify-between items-start mb-4">
-                  <div class="flex items-center gap-4 text-sm font-bold">
-                    <span class="flex items-center gap-1">
-                      <Calendar className="w-4 h-4" />
-                      {new Date(post.data.date)
-                        .toLocaleDateString("en-US", {
-                          year: "numeric",
-                          month: "short",
-                          day: "numeric",
-                        })
-                        .toUpperCase()}
-                    </span>
-                    <span class="flex items-center gap-1">
-                      <Clock className="w-4 h-4" />
-                      {post.data.readTime.toUpperCase()}
-                    </span>
-                  </div>
-                  <span
-                    class={`${categoryColors[post.data.category]} text-white px-4 py-2 font-black border-3 border-black shadow-[3px_3px_0px_0px_#000000]`}
-                  >
-                    {post.data.category.toUpperCase()}
-                  </span>
-                </div>
-
-                <CardTitle className="text-2xl md:text-3xl font-black mb-4 leading-tight hover:text-red-500 transition-colors">
-                  <a href={`/blog/${post.slug}`}>{post.data.title.toUpperCase()}</a>
-                </CardTitle>
-
-                <p class="text-lg font-bold mb-6 leading-relaxed text-gray-700">{post.data.excerpt}</p>
-
-                <div class="flex flex-wrap gap-2 mb-4">
-                  {post.data.tags.map((tag) => (
-                    <span class="bg-black text-white px-3 py-1 font-bold text-sm border-2 border-black">
-                      {tag.toUpperCase()}
-                    </span>
-                  ))}
-                </div>
-              </CardHeader>
-
-              <CardContent className="pt-0">
-                <a href={`/blog/${post.slug}`}>
-                  <Button className="bg-red-500 text-white hover:bg-red-600 font-black text-lg border-4 border-black shadow-[4px_4px_0px_0px_#000000] hover:shadow-[6px_6px_0px_0px_#000000] transition-all">
-                    READ MORE
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </Button>
-                </a>
-              </CardContent>
-            </Card>
+          {sortedPosts.map((post: CollectionEntry<"blog">, index: number) => (
+            <BlogPostCard post={post} index={index} />
           ))}
         </div>
       </div>
     </section>
 
-    <!-- Newsletter Signup -->
-    <section class="py-16 px-6">
-      <div class="max-w-4xl mx-auto text-center">
-        <div class="bg-green-400 border-8 border-black p-12 transform rotate-1 shadow-[12px_12px_0px_0px_#000000]">
-          <h3 class="text-4xl font-black mb-4">STAY UPDATED!</h3>
-          <p class="text-xl font-bold mb-8">GET THE LATEST DEVOPS INSIGHTS DELIVERED TO YOUR INBOX</p>
-          <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <Input
-              type="email"
-              placeholder="YOUR EMAIL..."
-              className="flex-1 border-4 border-black font-bold text-lg h-12 bg-white"
-            />
-            <Button className="bg-black text-white hover:bg-gray-800 font-black text-lg border-4 border-black shadow-[4px_4px_0px_0px_#000000] px-8">
-              SUBSCRIBE
-            </Button>
-          </div>
-        </div>
-      </div>
-    </section>
+    <NewsletterSignup />
 
-    <!-- Footer -->
-    <footer class="bg-black text-white p-6 border-t-8 border-white">
-      <div class="max-w-6xl mx-auto text-center">
-        <p class="font-black text-xl">© 2024 FRANUSI.DEV - SHARING DEVOPS KNOWLEDGE & BEST PRACTICES</p>
-      </div>
-    </footer>
+    <BlogFooter />
   </div>
 </Layout>

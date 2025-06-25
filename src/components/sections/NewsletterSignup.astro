@@ -1,0 +1,23 @@
+---
+import Button from '../ui/Button.astro';
+import Input from '../ui/Input.astro';
+---
+
+<section class="py-16 px-6">
+  <div class="max-w-4xl mx-auto text-center">
+    <div class="bg-green-400 border-8 border-black p-12 transform rotate-1 shadow-[12px_12px_0px_0px_#000000]">
+      <h3 class="text-4xl font-black mb-4">STAY UPDATED!</h3>
+      <p class="text-xl font-bold mb-8">GET THE LATEST DEVOPS INSIGHTS DELIVERED TO YOUR INBOX</p>
+      <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+        <Input
+          type="email"
+          placeholder="YOUR EMAIL..."
+          className="flex-1 border-4 border-black font-bold text-lg h-12 bg-white"
+        />
+        <Button className="bg-black text-white hover:bg-gray-800 font-black text-lg border-4 border-black shadow-[4px_4px_0px_0px_#000000] px-8">
+          SUBSCRIBE
+        </Button>
+      </div>
+    </div>
+  </div>
+</section>
