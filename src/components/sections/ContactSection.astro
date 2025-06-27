@@ -3,19 +3,21 @@ import Button from '../ui/Button.astro';
 import { Mail } from 'lucide-react';
 ---
 
-<section class="py-20 px-6 bg-yellow-300">
+<section class="py-20 px-6 bg-blue-400">
   <div class="max-w-4xl mx-auto text-center">
     <div class="bg-white border-8 border-black p-12 transform -rotate-1 shadow-[12px_12px_0px_0px_#000000]">
       <h3 class="text-5xl font-black mb-6">LET'S BUILD SOMETHING</h3>
       <p class="text-2xl font-bold mb-8">NEED SOMEONE WHO CAN MAKE YOUR INFRASTRUCTURE BULLETPROOF?</p>
       <div class="flex flex-wrap justify-center gap-4">
-        <Button className="bg-black text-white border-4 border-black font-black text-lg px-8 py-4 hover:bg-gray-800">
-          <Mail className="mr-2" />
-          francisco@devops.engineer
-        </Button>
-        <Button className="bg-green-500 text-white border-4 border-black font-black text-lg px-8 py-4 hover:bg-green-600">
+        <a href="mailto:franusierra@gmail.com">
+          <Button className="bg-black text-white border-4 border-black font-black text-lg px-8 py-4 hover:bg-gray-800">
+            <Mail className="mr-2" />
+            franusierra@gmail.com
+          </Button>
+        </a>
+        <!-- <Button className="bg-green-500 text-white border-4 border-black font-black text-lg px-8 py-4 hover:bg-green-600">
           DOWNLOAD RESUME
-        </Button>
+        </Button> -->
       </div>
     </div>
   </div>
