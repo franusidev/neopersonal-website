@@ -1,0 +1,48 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+- stage: Plan
+  displayName: 'Terraform Plan'
+  jobs:
+  - job: TerraformPlan
+    displayName: 'Terraform Plan'
+    steps:
+    - task: TerraformInstaller@1
+      inputs:
+        terraformVersion: 'latest'
+
+    - script: |
+        terraform --version
+        terraform init
+        terraform plan -out=tfplan
+      displayName: 'Terraform Init and Plan'
+
+    - publish: tfplan
+      artifact: tfplan
+      displayName: 'Publish tfplan artifact'
+
+
+- stage: Deploy
+  displayName: 'Terraform Apply'
+  dependsOn: Plan
+  jobs:
+  - job: TerraformApply
+    displayName: 'Terraform Apply'
+    steps:
+    - task: TerraformInstaller@1
+      inputs:
+        terraformVersion: 'latest'
+
+    - download: current
+      artifact: tfplan
+      displayName: 'Download tfplan artifact'
+
+    - script: |
+        terraform --version
+        terraform init
+        terraform apply -auto-approve tfplan
+      displayName: 'Terraform Init and Apply'
