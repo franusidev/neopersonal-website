@@ -34,7 +34,6 @@ stages:
 - stage: Deploy
   displayName: 'Terraform Apply'
   trigger: manual
-  dependsOn: Plan
   jobs:
   - job: TerraformApply
     displayName: 'Terraform Apply'
