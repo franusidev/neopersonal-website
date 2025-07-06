@@ -14,13 +14,18 @@ stages:
     - task: TerraformInstaller@1
       inputs:
         terraformVersion: 'latest'
-
-    - script: |
-        terraform --version
-        terraform init
-        terraform plan -out=tfplan
+    - task: AzureCLI@2
+      inputs:
+        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
+        azureSubscription: 'PersonalProjectsSC'
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript:  |
+          terraform --version
+          terraform init
+          terraform plan -out=tfplan
       displayName: 'Terraform Init and Plan'
-
+    
     - publish: tfplan
       artifact: tfplan
       displayName: 'Publish tfplan artifact'
@@ -28,11 +33,13 @@ stages:
 
 - stage: Deploy
   displayName: 'Terraform Apply'
+  trigger: manual
   dependsOn: Plan
   jobs:
   - job: TerraformApply
     displayName: 'Terraform Apply'
     steps:
+    - checkout: self
     - task: TerraformInstaller@1
       inputs:
         terraformVersion: 'latest'
@@ -41,8 +48,14 @@ stages:
       artifact: tfplan
       displayName: 'Download tfplan artifact'
 
-    - script: |
-        terraform --version
-        terraform init
-        terraform apply -auto-approve tfplan
+    - task: AzureCLI@2
+      inputs:
+        azureSubscription: 'PersonalProjectsSC'
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
+        inlineScript: |
+          terraform --version
+          terraform init
+          terraform apply --var-file prod.tfvars -auto-approve $(Pipeline.Workspace)/tfplan/tfplan
       displayName: 'Terraform Init and Apply'
