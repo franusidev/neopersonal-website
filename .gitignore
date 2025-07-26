@@ -81,10 +81,6 @@ override.tf.json
 *_override.tf
 *_override.tf.json
 
-# Exclude variable files with sensitive data
-*.tfvars
-*.tfvars.json
-
 # Exclude plan output
 *.tfplan
 
