@@ -26,8 +26,8 @@ stages:
           terraform plan --var-file prod.tfvars -out=$(System.DefaultWorkingDirectory)/tfplan
       displayName: 'Terraform Init and Plan'
     
-    - publish: tfplan
-      artifact: $(System.DefaultWorkingDirectory)/tfplan
+    - publish: $(System.DefaultWorkingDirectory)/tfplan
+      artifact: tfplan
       displayName: 'Publish tfplan artifact'
 
 
