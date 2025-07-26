@@ -23,11 +23,11 @@ stages:
         inlineScript:  |
           terraform --version
           terraform init
-          terraform plan --var-file prod.tfvars -out=tfplan
+          terraform plan --var-file prod.tfvars -out=$(System.DefaultWorkingDirectory)/tfplan
       displayName: 'Terraform Init and Plan'
     
     - publish: tfplan
-      artifact: tfplan
+      artifact: $(System.DefaultWorkingDirectory)/tfplan
       displayName: 'Publish tfplan artifact'
 
 
