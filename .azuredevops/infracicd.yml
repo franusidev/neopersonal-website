@@ -23,7 +23,7 @@ stages:
         inlineScript:  |
           terraform --version
           terraform init
-          terraform plan -out=tfplan
+          terraform plan --var-file prod.tfvars -out=tfplan
       displayName: 'Terraform Init and Plan'
     
     - publish: tfplan
