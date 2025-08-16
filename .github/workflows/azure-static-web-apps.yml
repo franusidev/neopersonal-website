@@ -5,11 +5,11 @@ env:
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-      - main
+      - master
 
 permissions:
   issues: write
