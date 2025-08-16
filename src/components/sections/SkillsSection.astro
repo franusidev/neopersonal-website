@@ -1,12 +1,12 @@
 ---
 import SkillCard from '../ui/SkillCard.astro';
-import { Cloud, Server, GitBranch, Database, Zap, Shield,FileCode } from 'lucide-react';
+import { Cloud, Server, GitBranch, Zap, Shield,FileCode } from 'lucide-react';
 ---
 
-<section class="py-20 px-6 bg-red-500">
+<section class="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-red-500">
   <div class="max-w-6xl mx-auto">
-    <h3 class="text-5xl font-black text-white mb-12 text-center">MY ARSENAL</h3>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <h3 class="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-8 sm:mb-10 md:mb-12 text-center">MY ARSENAL</h3>
+    <div class="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
       <SkillCard title="CLOUD CERTIFICATIONS" icon={Cloud} color="bg-black" techs={["DEVOPS ENGINEER EXPERT (AZ-400)", "AZURE DEVELOPER (AZ-204)", "AWS SOLUTIONS ARCHITECT - ASSOCIATE"]} />
       <SkillCard title="CI/CD" icon={GitBranch} color="bg-green-500" techs={["AZURE DEVOPS", "GITHUB ACTIONS", "JENKINS","TERRAFORM","BICEP"]} />
       <SkillCard title="CONTAINERS" icon={Server} color="bg-blue-500" techs={["DOCKER", "KUBERNETES", "HELM", "ARGO CD","AKS","K3S","INGRESS"]} />

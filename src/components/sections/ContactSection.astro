@@ -3,16 +3,17 @@ import Button from '../ui/Button.astro';
 import { Mail } from 'lucide-react';
 ---
 
-<section class="py-20 px-6 bg-blue-400">
+<section class="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-blue-400">
   <div class="max-w-4xl mx-auto text-center">
-    <div class="bg-white border-8 border-black p-12 transform -rotate-1 shadow-[12px_12px_0px_0px_#000000]">
-      <h3 class="text-5xl font-black mb-6">LET'S BUILD SOMETHING</h3>
-      <p class="text-2xl font-bold mb-8">NEED SOMEONE WHO CAN MAKE YOUR INFRASTRUCTURE BULLETPROOF?</p>
+    <div class="bg-white border-4 sm:border-6 md:border-8 border-black p-6 sm:p-8 md:p-12 transform -rotate-1 shadow-[8px_8px_0px_0px_#000000] md:shadow-[12px_12px_0px_0px_#000000]">
+      <h3 class="text-3xl sm:text-4xl md:text-5xl font-black mb-4 sm:mb-6">LET'S BUILD SOMETHING</h3>
+      <p class="text-lg sm:text-xl md:text-2xl font-bold mb-6 sm:mb-8">NEED SOMEONE WHO CAN MAKE YOUR INFRASTRUCTURE BULLETPROOF?</p>
       <div class="flex flex-wrap justify-center gap-4">
         <a href="mailto:franusierra@gmail.com">
-          <Button className="bg-black text-white border-4 border-black font-black text-lg px-8 py-4 hover:bg-gray-800">
-            <Mail className="mr-2" />
-            franusierra@gmail.com
+          <Button className="bg-black text-white border-4 border-black font-black text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 hover:bg-gray-800">
+            <Mail className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
+            <span class="hidden sm:inline">franusierra@gmail.com</span>
+            <span class="sm:hidden">EMAIL ME</span>
           </Button>
         </a>
         <!-- <Button className="bg-green-500 text-white border-4 border-black font-black text-lg px-8 py-4 hover:bg-green-600">

@@ -10,25 +10,26 @@ interface Props {
 }
 const { title, company, years, color, points, rotation = "rotate-1", image } = Astro.props;
 ---
-<div class={`${color} border-8 border-black p-8 transform ${rotation} shadow-[12px_12px_0px_0px_#000000]`}>  <div class="flex justify-between items-start mb-4">
-    <div class="flex items-center gap-4">
+<div class={`${color} border-4 sm:border-6 md:border-8 border-black p-4 sm:p-6 md:p-8 transform ${rotation} shadow-[6px_6px_0px_0px_#000000] sm:shadow-[8px_8px_0px_0px_#000000] md:shadow-[12px_12px_0px_0px_#000000]`}>
+  <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
+    <div class="flex items-center gap-3 sm:gap-4">
       {image && (
         <img 
           src={image} 
           alt={`${company} logo`} 
-          class="w-16 h-16 object-contain bg-white rounded-lg p-2 border-4 border-black"
+          class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain bg-white rounded-lg p-1.5 sm:p-2 border-2 sm:border-4 border-black flex-shrink-0"
         />
       )}
-      <div>
-        <h4 class="text-3xl font-black">{title}</h4>
-        <p class="text-xl font-bold">{company}</p>
+      <div class="min-w-0 flex-1">
+        <h4 class="text-xl sm:text-2xl md:text-3xl font-black leading-tight">{title}</h4>
+        <p class="text-lg sm:text-xl font-bold">{company}</p>
       </div>
     </div>
-    <span class="bg-black text-white px-4 py-2 font-black">{years}</span>
+    <span class="bg-black text-white px-2 sm:px-3 md:px-4 py-1 sm:py-2 font-black text-sm sm:text-base whitespace-nowrap self-start">{years}</span>
   </div>
-  <ul class="text-lg font-bold space-y-2">
+  <ul class="text-sm sm:text-base md:text-lg font-bold space-y-1.5 sm:space-y-2">
     {points.map(point => (
-      <li>• {point}</li>
+      <li class="leading-relaxed">• {point}</li>
     ))}
   </ul>
 </div>
