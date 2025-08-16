@@ -39,7 +39,7 @@ jobs:
           cache: "pnpm"
 
       - name: Install dependencies
-        run: pnpm ci
+        run: pnpm install
 
       - name: Build Astro site
         run: pnpm run build
