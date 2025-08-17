@@ -23,4 +23,12 @@ resource "azurerm_static_web_app" "staticweb" {
   location            = azurerm_resource_group.rg.location
   sku_tier            = "Free"
   sku_size            = "Free"
+
+  lifecycle {
+    ignore_changes = [
+      repository_url,
+      repository_branch
+    ]
+  }
+
 }
