@@ -27,9 +27,9 @@ const sortedPosts = blogPosts.sort(
         </div>
       </div>
     </section>    <!-- Blog Posts -->
-    <section class="py-8 px-6">
+    <section class="py-12 px-6">
       <div class="max-w-6xl mx-auto">
-        <div class="grid gap-8">
+        <div class="grid gap-12">
           {sortedPosts.map((post: CollectionEntry<"blog">, index: number) => (
             <BlogPostCard post={post} index={index} />
           ))}

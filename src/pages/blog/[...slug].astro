@@ -35,13 +35,13 @@ const { Content } = await render(entry);
       <div class="max-w-4xl mx-auto">
         <!-- Article Header -->
         <div class="bg-white border-8 border-black p-8 mb-8 shadow-[12px_12px_0px_0px_#000000] transform">          
-          <div class="flex items-center gap-4 text-sm font-bold mb-4">
+          <div class="flex flex-wrap items-center gap-2 sm:gap-4 text-sm font-bold mb-4">
             <CategoryBadge category={entry.data.category} />
             <span class="flex items-center gap-1">
               <Calendar className="w-4 h-4" />
               {formatBlogDate(new Date(entry.data.date))}
             </span>
-            <span class="flex items-center gap-1">
+            <span class="hidden sm:flex items-center gap-1">
               <Clock className="w-4 h-4" />
               {entry.data.readTime.toUpperCase()}
             </span>
@@ -58,43 +58,49 @@ const { Content } = await render(entry);
               </span>
             ))}
           </div>
-
-          <!-- Share buttons -->
-          <div class="flex items-center gap-4 pt-4 border-t-4 border-black">
-            <span class="text-lg font-black">SHARE:</span>
-            <Button
-              size="sm"
-              className="bg-blue-500 text-white border-3 border-black font-black shadow-[3px_3px_0px_0px_#000000] hover:bg-blue-600"
-            >
-              <Share2 className="w-4 h-4 mr-1" />
-              TWITTER
-            </Button>
-            <a href="https://www.linkedin.com/in/franusi" target="_blank" rel="noopener noreferrer">
-              <Button
-                size="sm"
-                className="bg-purple-500 text-white border-3 border-black font-black shadow-[3px_3px_0px_0px_#000000] hover:bg-purple-600"
-              >
-                <ExternalLink className="w-4 h-4 mr-1" />
-                LINKEDIN
-              </Button>
-            </a>
-          </div>
-        </div>        <!-- Article Content -->
-        <div class="bg-white border-8 border-black p-8 shadow-[12px_12px_0px_0px_#000000] transform ">
-          <div class="prose prose-lg max-w-none 
-            prose-headings:font-black prose-headings:text-black prose-headings:mb-6 prose-headings:mt-8
-            prose-p:font-bold prose-p:text-gray-900 prose-p:leading-relaxed
+        </div>        
+        
+        <!-- Article Content -->
+        <div class="bg-white border-8 border-black p-4 md:p-8 shadow-[12px_12px_0px_0px_#000000] transform">
+          <div class="prose prose-base md:prose-lg max-w-none 
+            prose-headings:font-black prose-headings:text-black prose-headings:mb-4 md:prose-headings:mb-6 prose-headings:mt-6 md:prose-headings:mt-8
+            prose-p:font-bold prose-p:text-gray-900 prose-p:leading-relaxed prose-p:mb-4 md:prose-p:mb-6
             prose-strong:text-black prose-strong:font-black
             prose-code:bg-yellow-300 prose-code:text-black prose-code:font-black prose-code:px-2 prose-code:py-1 prose-code:border-2 prose-code:border-black prose-code:rounded-none prose-code:before:content-none prose-code:after:content-none
-            prose-pre:bg-gray-900 prose-pre:border-8 prose-pre:border-black prose-pre:shadow-[8px_8px_0px_0px_#000000] prose-pre:p-6 prose-pre:overflow-x-auto prose-pre:rounded-none
+            prose-pre:bg-gray-900 prose-pre:border-4 md:prose-pre:border-8 prose-pre:border-black prose-pre:shadow-[4px_4px_0px_0px_#000000] md:prose-pre:shadow-[8px_8px_0px_0px_#000000] prose-pre:p-3 md:prose-pre:p-6 prose-pre:overflow-x-auto prose-pre:rounded-none prose-pre:mb-6 md:prose-pre:mb-8
             prose-pre:code:bg-transparent prose-pre:code:text-green-400 prose-pre:code:font-mono prose-pre:code:border-0 prose-pre:code:p-0
-            prose-blockquote:border-l-8 prose-blockquote:border-red-500 prose-blockquote:bg-yellow-100 prose-blockquote:font-black prose-blockquote:p-6 prose-blockquote:shadow-[4px_4px_0px_0px_#000000] prose-blockquote:not-italic
+            prose-blockquote:border-l-4 md:prose-blockquote:border-l-8 prose-blockquote:border-red-500 prose-blockquote:bg-yellow-100 prose-blockquote:font-black prose-blockquote:p-4 md:prose-blockquote:p-6 prose-blockquote:shadow-[2px_2px_0px_0px_#000000] md:prose-blockquote:shadow-[4px_4px_0px_0px_#000000] prose-blockquote:not-italic prose-blockquote:my-6 md:prose-blockquote:my-8
             prose-a:text-red-500 prose-a:font-black prose-a:no-underline hover:prose-a:underline
-            prose-ul:font-bold prose-ul:text-gray-900
-            prose-ol:font-bold prose-ol:text-gray-900
-            prose-li:text-gray-900 prose-li:font-bold
-            prose-hr:border-4 prose-hr:border-black prose-hr:my-8">
+            prose-ul:font-bold prose-ul:text-gray-900 prose-ul:mb-4 md:prose-ul:mb-6
+            prose-ol:font-bold prose-ol:text-gray-900 prose-ol:mb-4 md:prose-ol:mb-6
+            prose-li:text-gray-900 prose-li:font-bold prose-li:mb-1 md:prose-li:mb-2
+            prose-hr:border-2 md:prose-hr:border-4 prose-hr:border-black prose-hr:my-6 md:prose-hr:my-8">
             <Content />
+          </div>
+        </div>
+
+        <!-- Share buttons -->
+        <div class="bg-white border-8 border-black p-6 mt-8 shadow-[12px_12px_0px_0px_#000000] transform">
+          <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+            <span class="text-lg font-black">SHARE THIS ARTICLE:</span>
+            <div class="flex flex-wrap gap-4">
+              <Button
+                size="sm"
+                className="bg-blue-500 text-white border-3 border-black font-black shadow-[3px_3px_0px_0px_#000000] hover:bg-blue-600"
+              >
+                <Share2 className="w-4 h-4 mr-1" />
+                TWITTER
+              </Button>
+              <a href="https://www.linkedin.com/in/franusi" target="_blank" rel="noopener noreferrer">
+                <Button
+                  size="sm"
+                  className="bg-purple-500 text-white border-3 border-black font-black shadow-[3px_3px_0px_0px_#000000] hover:bg-purple-600"
+                >
+                  <ExternalLink className="w-4 h-4 mr-1" />
+                  LINKEDIN
+                </Button>
+              </a>
+            </div>
           </div>
         </div>
 
