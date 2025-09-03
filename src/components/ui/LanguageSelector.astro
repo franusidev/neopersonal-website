@@ -1,0 +1,35 @@
+---
+interface Props {
+  currentLang?: string;
+  basePath?: string;
+}
+
+const { currentLang = 'en', basePath = '/resume' } = Astro.props;
+---
+
+<div class="language-selector">
+  <div class="flex border-2 border-black rounded-none shadow-[3px_3px_0px_0px_#000000] overflow-hidden">
+    <a
+      href={`${basePath}/en`}
+      class={`flex items-center gap-2 px-3 py-2 font-bold transition-all border-r border-black ${
+        currentLang === 'en' 
+          ? 'bg-black text-white' 
+          : 'bg-white text-black hover:bg-gray-100'
+      }`}
+    >
+      <span class="text-base">🇺🇸</span>
+      <span class="text-sm">EN</span>
+    </a>
+    <a
+      href={`${basePath}/es`}
+      class={`flex items-center gap-2 px-3 py-2 font-bold transition-all ${
+        currentLang === 'es' 
+          ? 'bg-black text-white' 
+          : 'bg-white text-black hover:bg-gray-100'
+      }`}
+    >
+      <span class="text-base">🇪🇸</span>
+      <span class="text-sm">ES</span>
+    </a>
+  </div>
+</div>

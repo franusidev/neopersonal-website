@@ -1,0 +1,63 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/ui/Button.astro';
+import LanguageSelector from '../../components/ui/LanguageSelector.astro';
+import PdfResumeLayout from '../../components/PdfResumeLayout.astro';
+import { ArrowLeft } from 'lucide-react';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'es' } }
+  ];
+}
+
+// Get language from path parameter
+const { lang } = Astro.params;
+
+// Validate language and default to 'en'
+const validLang = lang === 'es' ? 'es' : 'en';
+
+// Load the appropriate language file
+const enData = await import('../../content/resume/en.json');
+const esData = await import('../../content/resume/es.json');
+const data = validLang === 'es' ? esData.default : enData.default;
+
+const locationText = validLang === 'es' ? 'Madrid, España' : 'Madrid, Spain';
+const jobConnector = validLang === 'es' ? 'en' : 'at';
+---
+
+<Layout title="Francisco Núñez Sierra - Resume">
+  <div style="min-height: 100vh; background-color: white;" id="resume-container">
+    <!-- Navigation Header -->
+    <div style="position: fixed; top: 0; left: 0; right: 0; z-index: 10; background-color: transparent; padding: 16px; display: flex; justify-content: space-between; align-items: center;">
+      <Button
+        variant="outline"
+        className="bg-black text-white border-4 border-black font-black hover:bg-gray-800 shadow-[4px_4px_0px_0px_#000000] text-sm lg:text-base px-3 lg:px-4"
+        onclick="window.location.href = '/'"
+      >
+        <ArrowLeft className="mr-1 lg:mr-2 w-3 h-3 lg:w-4 lg:h-4" />
+        BACK TO WEBSITE
+      </Button>
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <Button
+          variant="outline"
+          className="bg-black text-white border-4 border-black font-black hover:bg-gray-800 shadow-[4px_4px_0px_0px_#000000] text-sm lg:text-base px-3 lg:px-4"
+          onclick={`window.open('/resume-${validLang}.pdf', '_blank')`}
+        >
+          📄 DOWNLOAD PDF
+        </Button>
+        <LanguageSelector currentLang={validLang} basePath="/resume" />
+      </div>
+    </div>
+
+    <!-- Resume Content -->
+    <main style="padding-top: 80px; padding: 80px 32px 32px 32px;" id="resume-content">
+      <PdfResumeLayout 
+        data={data} 
+        locationText={locationText} 
+        jobConnector={jobConnector} 
+      />
+    </main>
+  </div>
+</Layout>
