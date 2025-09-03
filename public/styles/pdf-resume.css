@@ -1,0 +1,208 @@
+/* PDF Resume Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica', Arial, sans-serif;
+  line-height: 1.4;
+  color: #000;
+  background: white;
+  font-size: 12px;
+}
+
+.container {
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #000;
+  padding-bottom: 20px;
+}
+
+.profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  margin: 0 auto 15px;
+  border: 2px solid #ccc;
+  object-fit: cover;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.section {
+  margin-bottom: 25px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.section-icon {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.details p {
+  margin-bottom: 4px;
+  font-size: 11px;
+  color: #333;
+}
+
+.skill-item {
+  margin-bottom: 10px;
+}
+
+.skill-name {
+  font-weight: bold;
+  font-size: 11px;
+  margin-bottom: 3px;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 6px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.skill-progress {
+  height: 100%;
+  background: #000;
+  border-radius: 3px;
+}
+
+.profile-text {
+  font-size: 11px;
+  line-height: 1.6;
+  text-align: justify;
+  color: #333;
+}
+
+.job {
+  border-left: 3px solid #ddd;
+  padding-left: 15px;
+  margin-bottom: 20px;
+}
+
+.job-title {
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 3px;
+}
+
+.job-period {
+  font-size: 10px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.job-responsibilities {
+  list-style: none;
+}
+
+.job-responsibilities li {
+  font-size: 10px;
+  margin-bottom: 3px;
+  padding-left: 12px;
+  position: relative;
+  color: #333;
+}
+
+.job-responsibilities li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #000;
+}
+
+.education-item {
+  border-left: 3px solid #ddd;
+  padding-left: 15px;
+}
+
+.education-title {
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 3px;
+}
+
+.education-institution {
+  font-size: 11px;
+  color: #666;
+  margin-bottom: 3px;
+}
+
+.education-period {
+  font-size: 10px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.education-highlights {
+  list-style: none;
+}
+
+.education-highlights li {
+  font-size: 10px;
+  margin-bottom: 3px;
+  padding-left: 12px;
+  position: relative;
+  color: #333;
+}
+
+.education-highlights li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #000;
+}
+
+.references {
+  border-left: 3px solid #ddd;
+  padding-left: 15px;
+}
+
+.references-content {
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 3px;
+}
+
+.references-contact {
+  font-size: 10px;
+  color: #666;
+}

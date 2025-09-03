@@ -1,0 +1,53 @@
+---
+// Ripple transition component for smooth navigation
+---
+
+<div id="ripple-overlay" class="fixed inset-0 bg-white z-50 pointer-events-none opacity-0">
+</div>
+
+<style>
+  @keyframes ripple {
+    0% {
+      clip-path: circle(0% at var(--ripple-x, 50%) var(--ripple-y, 50%));
+      opacity: 0;
+    }
+    1% {
+      opacity: 1;
+    }
+    100% {
+      clip-path: circle(150% at var(--ripple-x, 50%) var(--ripple-y, 50%));
+      opacity: 1;
+    }
+  }
+
+  .ripple-animate {
+    animation: ripple 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+</style>
+
+<script>
+  function createRippleTransition(event: MouseEvent, targetUrl: string) {
+    const overlay = document.getElementById('ripple-overlay');
+    if (!overlay) return;
+
+    // Set ripple to center of the viewport
+    const x = 50; // Center horizontally
+    const y = 50; // Center vertically
+
+    // Set CSS custom properties for ripple center
+    overlay.style.setProperty('--ripple-x', `${x}%`);
+    overlay.style.setProperty('--ripple-y', `${y}%`);
+
+    // Show overlay and start animation
+    overlay.style.pointerEvents = 'auto';
+    overlay.classList.add('ripple-animate');
+
+    // Navigate after animation
+    setTimeout(() => {
+      window.location.href = targetUrl;
+    }, 600);
+  }
+
+  // Make function globally available
+  (window as any).createRippleTransition = createRippleTransition;
+</script>

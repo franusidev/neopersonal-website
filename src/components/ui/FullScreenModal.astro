@@ -1,0 +1,102 @@
+---
+import { ArrowLeft } from 'lucide-react';
+import Button from './Button.astro';
+---
+
+<div id="fullscreen-modal" class="fixed inset-0 bg-white z-50 hidden opacity-0">
+  <div class="absolute top-4 left-4 z-10">
+    <Button
+      id="modal-close-btn"
+      variant="outline"
+      className="bg-black text-white border-4 border-black font-black hover:bg-gray-800 shadow-[4px_4px_0px_0px_#000000] text-sm lg:text-base px-3 lg:px-4"
+    >
+      <ArrowLeft className="mr-1 lg:mr-2 w-3 h-3 lg:w-4 lg:h-4" />
+      BACK
+    </Button>
+  </div>
+  
+  <main class="flex items-center justify-center h-full p-8">
+    <div class="text-center">
+    </div>
+  </main>
+</div>
+
+<style>
+  @keyframes ripple {
+    0% {
+      clip-path: circle(0% at center);
+      opacity: 0;
+    }
+    1% {
+      opacity: 1;
+    }
+    100% {
+      clip-path: circle(150% at center);
+      opacity: 1;
+    }
+  }
+
+  @keyframes ripple-reverse {
+    0% {
+      clip-path: circle(150% at center);
+      opacity: 1;
+    }
+    99% {
+      opacity: 1;
+    }
+    100% {
+      clip-path: circle(0% at center);
+      opacity: 0;
+    }
+  }
+
+  .modal-open {
+    animation: ripple 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  .modal-close {
+    animation: ripple-reverse 0.6s cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards;
+  }
+</style>
+
+<script>
+  const modal = document.getElementById('fullscreen-modal');
+  const closeBtn = document.getElementById('modal-close-btn');
+
+  function closeModal() {
+    if (modal) {
+      modal.classList.remove('modal-open');
+      modal.classList.add('modal-close');
+      
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('modal-close');
+        document.body.style.overflow = 'auto';
+      }, 600);
+    }
+  }
+
+  if (closeBtn && modal) {
+    closeBtn.addEventListener('click', closeModal);
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+      closeModal();
+    }
+  });
+
+  (window as any).openModal = () => {
+    if (modal) {
+      modal.classList.remove('hidden');
+      modal.classList.remove('modal-close');
+      modal.classList.add('modal-open');
+      document.body.style.overflow = 'hidden';
+      
+      // Navigate to resume page after transition completes
+      setTimeout(() => {
+        window.location.href = '/resume';
+      }, 600); // Match the animation duration
+    }
+  };
+</script>

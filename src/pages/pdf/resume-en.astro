@@ -1,0 +1,13 @@
+---
+import PdfResumeLayout from '../../components/PdfResumeLayout.astro';
+
+// Load the English resume data
+const data = (await import('../../content/resume/en.json')).default;
+---
+
+<PdfResumeLayout 
+  data={data} 
+  lang="en" 
+  title="Francisco Núñez Sierra - Resume"
+  isPdf={true}
+/>
