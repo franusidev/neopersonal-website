@@ -1,10 +1,10 @@
 {
   "name": "FRANCISCO NÚÑEZ SIERRA",
-  "title": "INGENIERO DEVOPS",
-  "location": "MADRID, ESPAÑA",
-  "email": "navarro.fraan@gmail.com",
-  "phone": "+34 XXX XXX XXX",
-  "linkedin": "linkedin.com/in/francisco-navarro",
+  "title": "DEVOPS/SRE/PLATFORM ENGINEER",
+  "location": "Badajoz, España",
+  "email": "franusierra@gmail.com",
+  "phone": "+34 699984073",
+  "linkedin": "linkedin.com/in/franusi",
   "sections": {
     "details": {
       "title": "DETALLES",
@@ -37,7 +37,7 @@
       ]
     },
     "profile": {
-      "title": "PERFIL",
+      "title": "Sobre Mi",
       "icon": "👤",
       "content": "Ingeniero DevOps experimentado con experiencia en plataformas cloud Azure y AWS. Certificado Azure DevOps Engineer Expert (AZ-400) y Azure Developer (AZ-204) con historial comprobado en diseño e implementación de pipelines CI/CD escalables, orquestación de contenedores y automatización de infraestructura. Apasionado por construir arquitecturas cloud resilientes y optimizar flujos de desarrollo para organizaciones a escala empresarial."
     },
@@ -113,12 +113,6 @@
         "Proyecto final: Despliegue de aplicación cloud-native usando contenedorización",
         "Participante activo en talleres de DevOps y Cloud Computing"
       ]
-    },
-    "references": {
-      "title": "REFERENCIAS",
-      "icon": "📋",
-      "content": "Disponibles bajo petición",
-      "contact": "navarro.fraan@gmail.com • +34 XXX XXX XXX"
     }
   }
 }

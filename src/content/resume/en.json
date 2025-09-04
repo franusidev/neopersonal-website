@@ -1,10 +1,10 @@
 {
   "name": "FRANCISCO NÚÑEZ SIERRA",
-  "title": "DEVOPS ENGINEER",
-  "location": "MADRID, SPAIN",
-  "email": "navarro.fraan@gmail.com",
-  "phone": "+34 XXX XXX XXX",
-  "linkedin": "linkedin.com/in/francisco-navarro",
+  "title": "DEVOPS/SRE/PLATFORM ENGINEER",
+  "location": "Badajoz, Spain",
+  "email": "franusierra@gmail.com",
+  "phone": "+34 699984073",
+  "linkedin": "linkedin.com/in/franusi",
   "sections": {
     "details": {
       "title": "DETAILS",
@@ -113,12 +113,6 @@
         "Final project: Cloud-native application deployment using containerization",
         "Active participant in DevOps and Cloud Computing workshops"
       ]
-    },
-    "references": {
-      "title": "REFERENCES",
-      "icon": "📋",
-      "content": "Available upon request",
-      "contact": "navarro.fraan@gmail.com • +34 XXX XXX XXX"
     }
   }
 }

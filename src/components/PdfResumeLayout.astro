@@ -60,14 +60,12 @@ const jobConnector = lang === 'es' ? 'en' : 'at';
     
     .header {
       text-align: center;
-      margin-bottom: 30px;
-      border-bottom: 2px solid #000;
-      padding-bottom: 20px;
+      margin-bottom: 40px;
     }
     
     .profile-img {
-      width: 80px;
-      height: 80px;
+      width: 120px;
+      height: 120px;
       border-radius: 8px;
       margin: 0 auto 15px;
       border: 2px solid #ccc;
@@ -244,6 +242,132 @@ const jobConnector = lang === 'es' ? 'en' : 'at';
       font-size: 10px;
       color: #666;
     }
+
+    /* Responsive Design */
+    @media screen and (max-width: 768px) {
+      .container {
+        max-width: 100%;
+        padding: 15px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .profile-img {
+        width: 100px;
+        height: 100px;
+      }
+
+      h1 {
+        font-size: 20px;
+      }
+
+      .subtitle {
+        font-size: 12px;
+      }
+
+      .section-title {
+        font-size: 14px;
+      }
+
+      .header {
+        margin-bottom: 30px;
+      }
+
+      .section {
+        margin-bottom: 20px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .container {
+        padding: 10px;
+      }
+
+      .grid {
+        gap: 15px;
+      }
+
+      .profile-img {
+        width: 80px;
+        height: 80px;
+      }
+
+      h1 {
+        font-size: 18px;
+      }
+
+      .subtitle {
+        font-size: 11px;
+      }
+
+      .section-title {
+        font-size: 13px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+      }
+
+      .section-icon {
+        margin-right: 0;
+        margin-bottom: 3px;
+      }
+
+      .job {
+        padding-left: 10px;
+        margin-bottom: 15px;
+      }
+
+      .education-item {
+        padding-left: 10px;
+      }
+
+      .references {
+        padding-left: 10px;
+      }
+
+      .header {
+        margin-bottom: 25px;
+      }
+
+      .section {
+        margin-bottom: 18px;
+      }
+    }
+
+    @media print {
+      .container {
+        max-width: none;
+        padding: 10mm;
+      }
+
+      .grid {
+        grid-template-columns: 1fr 2fr;
+      }
+
+      body {
+        font-size: 10px;
+      }
+
+      .profile-img {
+        width: 60px;
+        height: 60px;
+      }
+
+      h1 {
+        font-size: 18px;
+      }
+
+      .subtitle {
+        font-size: 11px;
+      }
+
+      .section-title {
+        font-size: 12px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -341,17 +465,6 @@ const jobConnector = lang === 'es' ? 'en' : 'at';
           </div>
         </div>
 
-        <!-- References -->
-        <div class="section">
-          <h2 class="section-title">
-            <span class="section-icon">{data.sections.references.icon}</span>
-            {data.sections.references.title}
-          </h2>
-          <div class="references">
-            <p class="references-content">{data.sections.references.content}</p>
-            <p class="references-contact">{data.sections.references.contact}</p>
-          </div>
-        </div>
       </div>
     </div>
   </div>
