@@ -1,0 +1,135 @@
+{
+  "name": "FRANCISCO NÚÑEZ SIERRA",
+  "title": "DEVOPS/SRE/PLATFORM ENGINEER",
+  "location": "Badajoz, España",
+  "email": "franusierra@gmail.com",
+  "phone": "+34 699984073",
+  "linkedin": "linkedin.com/in/franusi",
+  "sections": {
+    "details": {
+      "title": "DETALLES",
+      "icon": "📍"
+    },
+    "skills": {
+      "title": "HABILIDADES",
+      "icon": "💼",
+      "items": [
+        {
+          "name": "Plataformas Cloud (Azure/AWS)",
+          "level": 95
+        },
+        {
+          "name": "CI/CD y DevOps",
+          "level": 92
+        },
+        {
+          "name": "Contenedores y Kubernetes",
+          "level": 88
+        },
+        {
+          "name": "Infraestructura como Código",
+          "level": 85
+        },
+        {
+          "name": "Seguridad y Monitorización",
+          "level": 80
+        }
+      ]
+    },
+    "profile": {
+      "title": "Sobre Mi",
+      "icon": "👤",
+      "content": "Ingeniero DevOps experimentado con experiencia en plataformas cloud Azure y AWS. Certificado Azure DevOps Engineer Expert (AZ-400) y Azure Developer (AZ-204) con historial comprobado en diseño e implementación de pipelines CI/CD escalables, orquestación de contenedores y automatización de infraestructura. Apasionado por construir arquitecturas cloud resilientes y optimizar flujos de desarrollo para organizaciones a escala empresarial."
+    },
+    "employment": {
+      "title": "HISTORIAL LABORAL",
+      "icon": "💼",
+      "jobs": [
+        {
+          "title": "Ingeniero DevOps",
+          "company": "Atos",
+          "period": "2022 — Presente",
+          "responsibilities": [
+            "Ingeniería DevOps a tiempo completo con experiencia en stack Azure para organización internacional",
+            "Administrador de Azure DevOps gestionando más de 2000 repositorios y operaciones CI/CD a escala empresarial",
+            "Creación de tareas y extensiones personalizadas para monitorización CI/CD interna y cumplimiento SOX",
+            "Diseño de estrategias integrales de CI/CD incluyendo ramificación Git, QA, testing y seguridad",
+            "Construcción y mantenimiento de plantillas reutilizables de pipelines CI/CD para múltiples lenguajes y frameworks",
+            "Diseño de soluciones CI/CD para proyectos de big data dirigidos a Databricks, Data Factory y Power BI",
+            "Implementación de stacks de infraestructura usando Terraform con POCs de Bicep",
+            "Amplia resolución de problemas y optimización en todas las operaciones DevOps"
+          ]
+        },
+        {
+          "title": "Ingeniero Cloud",
+          "company": "Accenture",
+          "period": "2021 — 2022",
+          "responsibilities": [
+            "Creación de arquitecturas cloud escalables y resilientes para múltiples clientes empresariales",
+            "Gestión de migraciones cloud con cero tiempo de inactividad desde infraestructura on-premise a AWS y Azure",
+            "Gestión y monitorización de clusters Kubernetes y OpenShift en entornos de producción",
+            "Orquestación de esfuerzos de resolución de problemas y estrategias de recuperación ante desastres"
+          ]
+        },
+        {
+          "title": "Desarrollador Full Stack",
+          "company": "Secoex",
+          "period": "2021",
+          "responsibilities": [
+            "Desarrollo de aplicaciones Android para uso empresarial con frameworks modernos",
+            "Construcción de aplicaciones web usando arquitectura Docker, Flask y DirectusCMS"
+          ]
+        },
+        {
+          "title": "Desarrollador Web",
+          "company": "SEF",
+          "period": "2020 — 2021",
+          "responsibilities": [
+            "Desarrollo web de e-commerce con enfoque en rendimiento y escalabilidad",
+            "Rol de consultoría a tiempo parcial proporcionando orientación técnica e implementación"
+          ]
+        },
+        {
+          "title": "Aprendiz DevOps",
+          "company": "Sngular",
+          "period": "2020",
+          "responsibilities": [
+            "Completé programa intensivo de prácticas DevOps de 6 meses",
+            "Adquirí experiencia en AWS, arquitecturas serverless y flujos avanzados de Git",
+            "Construcción de pipelines CI/CD usando Jenkins y GitHub Actions bajo mentoría"
+          ]
+        }
+      ]
+    },
+    "education": {
+      "title": "EDUCACIÓN",
+      "icon": "🎓",
+      "items": [
+        {
+          "degree": "Master en DevOps y Cloud Computing",
+          "field": "Computer Science",
+          "institution": "Universitat de Barcelona",
+          "period": "nov. 2021 — oct. 2022",
+          "highlights": [
+            "Especialización en arquitecturas cloud y automatización de infraestructura",
+            "Profundización en metodologías DevOps y prácticas de SRE",
+            "Proyectos prácticos con AWS, Azure y Kubernetes",
+            "Enfoque en CI/CD, monitorización y observabilidad"
+          ]
+        },
+        {
+          "degree": "Grado en Ingeniería Informática",
+          "field": "Ingeniería de software",
+          "institution": "Universidad de Extremadura",
+          "period": "2016 — 2020",
+          "highlights": [
+            "Formación integral en desarrollo de software y arquitecturas de sistemas",
+            "Especialización en ingeniería de software y metodologías ágiles",
+            "Proyecto final enfocado en desarrollo de aplicaciones escalables",
+            "Base sólida en algoritmos, estructuras de datos y programación"
+          ]
+        }
+      ]
+    }
+  }
+}

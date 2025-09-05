@@ -1,0 +1,135 @@
+{
+  "name": "FRANCISCO NÚÑEZ SIERRA",
+  "title": "DEVOPS/SRE/PLATFORM ENGINEER",
+  "location": "Badajoz, Spain",
+  "email": "franusierra@gmail.com",
+  "phone": "+34 699984073",
+  "linkedin": "linkedin.com/in/franusi",
+  "sections": {
+    "details": {
+      "title": "DETAILS",
+      "icon": "📍"
+    },
+    "skills": {
+      "title": "SKILLS",
+      "icon": "💼",
+      "items": [
+        {
+          "name": "Cloud Platforms (Azure/AWS)",
+          "level": 95
+        },
+        {
+          "name": "CI/CD & DevOps",
+          "level": 92
+        },
+        {
+          "name": "Containers & Kubernetes",
+          "level": 88
+        },
+        {
+          "name": "Infrastructure as Code",
+          "level": 85
+        },
+        {
+          "name": "Security & Monitoring",
+          "level": 80
+        }
+      ]
+    },
+    "profile": {
+      "title": "PROFILE",
+      "icon": "👤",
+      "content": "Experienced DevOps Engineer with expertise in Azure and AWS cloud platforms. Certified Azure DevOps Engineer Expert (AZ-400) and Azure Developer (AZ-204) with proven track record in designing and implementing scalable CI/CD pipelines, container orchestration, and infrastructure automation. Passionate about building resilient cloud architectures and optimizing development workflows for enterprise-scale organizations."
+    },
+    "employment": {
+      "title": "EMPLOYMENT HISTORY",
+      "icon": "💼",
+      "jobs": [
+        {
+          "title": "DevOps Engineer",
+          "company": "Atos",
+          "period": "2022 — Present",
+          "responsibilities": [
+            "Full-time DevOps engineering with expertise in Azure stack for international organization",
+            "Azure DevOps administrator managing 2000+ repositories and enterprise-scale CI/CD operations",
+            "Created custom tasks and extensions for internal CI/CD monitoring and SOX compliance",
+            "Designed comprehensive CI/CD strategies including Git branching, QA, testing and security",
+            "Built and maintained reusable CI/CD pipeline templates for multiple languages and frameworks",
+            "Designed CI/CD solutions for big data projects targeting Databricks, Data Factory and Power BI",
+            "Implemented infrastructure stacks using Terraform with Bicep POCs",
+            "Extensive troubleshooting and optimization across all DevOps operations"
+          ]
+        },
+        {
+          "title": "Cloud Engineer",
+          "company": "Accenture",
+          "period": "2021 — 2022",
+          "responsibilities": [
+            "Created scalable and resilient cloud architectures for multiple enterprise clients",
+            "Handled zero-downtime cloud migrations from on-premise infrastructure to AWS and Azure",
+            "Managed and monitored Kubernetes and OpenShift clusters in production environments",
+            "Orchestrated troubleshooting efforts and disaster recovery strategies in war rooms"
+          ]
+        },
+        {
+          "title": "Full Stack Developer",
+          "company": "Secoex",
+          "period": "2021",
+          "responsibilities": [
+            "Developed Android applications for enterprise usage with modern frameworks",
+            "Built web applications using Docker, Flask and DirectusCMS architecture"
+          ]
+        },
+        {
+          "title": "Web Developer",
+          "company": "SEF",
+          "period": "2020 — 2021",
+          "responsibilities": [
+            "E-commerce web development with focus on performance and scalability",
+            "Part-time consulting role providing technical guidance and implementation"
+          ]
+        },
+        {
+          "title": "DevOps Apprentice",
+          "company": "Sngular",
+          "period": "2020",
+          "responsibilities": [
+            "Completed 6-month intensive DevOps internship program",
+            "Gained expertise in AWS, serverless architectures and advanced Git workflows",
+            "Built CI/CD pipelines using Jenkins and GitHub Actions under mentorship"
+          ]
+        }
+      ]
+    },
+    "education": {
+      "title": "EDUCATION",
+      "icon": "🎓",
+      "items": [
+        {
+          "degree": "Master in DevOps and Cloud Computing",
+          "field": "Computer Science",
+          "institution": "Universitat de Barcelona",
+          "period": "Nov. 2021 — Oct. 2022",
+          "highlights": [
+            "Specialized in cloud architectures and infrastructure automation",
+            "Deep dive into DevOps methodologies and SRE practices",
+            "Hands-on projects with AWS, Azure and Kubernetes",
+            "Focus on CI/CD, monitoring and observability"
+          ]
+        },
+        {
+          "degree": "Bachelor's Degree in Computer Engineering",
+          "field": "Software Engineering",
+          "institution": "Universidad de Extremadura",
+          "period": "2016 — 2020",
+          "highlights": [
+            "Comprehensive training in software development and system architectures",
+            "Specialization in software engineering and agile methodologies",
+            "Final project focused on scalable application development",
+            "Strong foundation in algorithms, data structures and programming"
+          ]
+        }
+      ]
+    }
+  }
+}
