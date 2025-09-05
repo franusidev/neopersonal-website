@@ -17,7 +17,6 @@ permissions:
 
 jobs:
   build_and_deploy:
-    # Run for push to master or open/sync PRs, but skip on PR close
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy
@@ -40,32 +39,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      # Configure Puppeteer AppArmor profile before build
-      - name: Configure AppArmor profile for Puppeteer
-        run: |
-          sudo tee /etc/apparmor.d/chrome-dev-builds <<EOF
-          abi <abi/4.0>,
-          include <tunables/global>
-
-          profile chrome $HOME/.cache/puppeteer/chrome/*/chrome-linux64/chrome flags=(unconfined) {
-            userns,
-
-            # Site-specific additions and overrides. See local/README for details.
-            include if exists <local/chrome>
-          }
-
-          profile chrome-local $PWD/test/fixtures/*/node_modules/.astro/chrome/*/chrome-linux64/chrome flags=(unconfined) {
-            userns,
-
-            # Site-specific additions and overrides. See local/README for details.
-            include if exists <local/chrome>
-          }
-          EOF
-          sudo apparmor_parser -r /etc/apparmor.d/chrome-dev-builds
-          sudo service apparmor reload
-
+      # Build Astro site with Puppeteer sandbox disabled
       - name: Build Astro site
         run: pnpm run build
+        env:
+          PUPPETEER_DISABLE_SANDBOX: true
+          PUPPETEER_ARGS: "--no-sandbox --disable-setuid-sandbox"
 
       - name: Deploy to Azure Static Web Apps
         uses: Azure/static-web-apps-deploy@v1
@@ -78,7 +57,6 @@ jobs:
           skip_app_build: true
 
   close_pull_request:
-    # Automatically remove the preview environment when PR is closed
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
     name: Close Pull Request Preview Environment
