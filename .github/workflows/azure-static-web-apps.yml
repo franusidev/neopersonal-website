@@ -1,25 +1,25 @@
 name: Deploy web app to Azure Static Web Apps
 
 env:
-  APP_LOCATION: "dist" # location of your client code
+  APP_LOCATION: "dist"
+
 on:
   push:
     branches:
       - master
   pull_request:
-    types: [opened, synchronize, reopened, closed]
     branches:
       - master
 
 permissions:
-  issues: write
   contents: read
   pull-requests: write
 
 jobs:
   build_and_deploy:
+    # Run for push to master or open/sync PRs, but skip on PR close
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     name: Build and Deploy
     steps:
       - uses: actions/checkout@v4
@@ -27,12 +27,11 @@ jobs:
           submodules: true
 
       - uses: pnpm/action-setup@v4
-        name: Install pnpm
+        name: Setup pnpm
         with:
           version: 10
-          run_install: false
 
-      - name: Install Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -41,10 +40,35 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      # Configure Puppeteer AppArmor profile before build
+      - name: Configure AppArmor profile for Puppeteer
+        run: |
+          sudo tee /etc/apparmor.d/chrome-dev-builds <<EOF
+          abi <abi/4.0>,
+          include <tunables/global>
+
+          profile chrome $HOME/.cache/puppeteer/chrome/*/chrome-linux64/chrome flags=(unconfined) {
+            userns,
+
+            # Site-specific additions and overrides. See local/README for details.
+            include if exists <local/chrome>
+          }
+
+          profile chrome-local $PWD/test/fixtures/*/node_modules/.astro/chrome/*/chrome-linux64/chrome flags=(unconfined) {
+            userns,
+
+            # Site-specific additions and overrides. See local/README for details.
+            include if exists <local/chrome>
+          }
+          EOF
+          sudo apparmor_parser -r /etc/apparmor.d/chrome-dev-builds
+          sudo service apparmor reload
+
       - name: Build Astro site
         run: pnpm run build
-      - name: Build And Deploy
-        uses: Azure/static-web-apps-deploy@1a947af9992250f3bc2e68ad0754c0b0c11566c9
+
+      - name: Deploy to Azure Static Web Apps
+        uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
@@ -54,12 +78,12 @@ jobs:
           skip_app_build: true
 
   close_pull_request:
+    # Automatically remove the preview environment when PR is closed
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
-    name: Close Pull Request
+    name: Close Pull Request Preview Environment
     steps:
-      - name: Close Pull Request
-        uses: Azure/static-web-apps-deploy@1a947af9992250f3bc2e68ad0754c0b0c11566c9
+      - uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           action: "close"
