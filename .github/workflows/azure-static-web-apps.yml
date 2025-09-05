@@ -39,10 +39,15 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      # Build Astro site with Puppeteer sandbox disabled
+      # ✅ Install Chromium to avoid Puppeteer sandbox issues
+      - name: Install Chromium
+        run: sudo apt-get update && sudo apt-get install -y chromium-browser
+
+      # ✅ Build Astro site using system Chromium
       - name: Build Astro site
         run: pnpm run build
         env:
+          PUPPETEER_EXECUTABLE_PATH: /usr/bin/chromium-browser
           PUPPETEER_DISABLE_SANDBOX: true
           PUPPETEER_ARGS: "--no-sandbox --disable-setuid-sandbox"
 
