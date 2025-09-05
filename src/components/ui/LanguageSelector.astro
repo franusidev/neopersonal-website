@@ -8,28 +8,28 @@ const { currentLang = 'en', basePath = '/resume' } = Astro.props;
 ---
 
 <div class="language-selector">
-  <div class="flex border-2 border-black rounded-none shadow-[3px_3px_0px_0px_#000000] overflow-hidden">
+  <div class="flex border-2 border-black/60 rounded-none shadow-[2px_2px_0px_0px_rgba(0,0,0,0.6)] overflow-hidden w-full sm:w-auto backdrop-blur-sm">
     <a
       href={`${basePath}/en`}
-      class={`flex items-center gap-2 px-3 py-2 font-bold transition-all border-r border-black ${
+      class={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-3 py-2 font-bold transition-all border-r border-black/60 flex-1 sm:flex-none ${
         currentLang === 'en' 
-          ? 'bg-black text-white' 
-          : 'bg-white text-black hover:bg-gray-100'
+          ? 'bg-black/80 text-white' 
+          : 'bg-white/80 text-black hover:bg-white/90'
       }`}
     >
-      <span class="text-base">🇺🇸</span>
-      <span class="text-sm">EN</span>
+      <span class="text-sm sm:text-base">🇺🇸</span>
+      <span class="text-xs sm:text-sm font-black">EN</span>
     </a>
     <a
       href={`${basePath}/es`}
-      class={`flex items-center gap-2 px-3 py-2 font-bold transition-all ${
+      class={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-3 py-2 font-bold transition-all flex-1 sm:flex-none ${
         currentLang === 'es' 
-          ? 'bg-black text-white' 
-          : 'bg-white text-black hover:bg-gray-100'
+          ? 'bg-black/80 text-white' 
+          : 'bg-white/80 text-black hover:bg-white/90'
       }`}
     >
-      <span class="text-base">🇪🇸</span>
-      <span class="text-sm">ES</span>
+      <span class="text-sm sm:text-base">🇪🇸</span>
+      <span class="text-xs sm:text-sm font-black">ES</span>
     </a>
   </div>
 </div>

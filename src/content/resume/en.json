@@ -104,14 +104,31 @@
     "education": {
       "title": "EDUCATION",
       "icon": "🎓",
-      "degree": "Computer Science Degree",
-      "institution": "Universidad Complutense de Madrid",
-      "period": "September 2016 — June 2020",
-      "highlights": [
-        "Graduated with focus on Software Engineering and Cloud Technologies",
-        "Specialized in distributed systems and infrastructure automation",
-        "Final project: Cloud-native application deployment using containerization",
-        "Active participant in DevOps and Cloud Computing workshops"
+      "items": [
+        {
+          "degree": "Master in DevOps and Cloud Computing",
+          "field": "Computer Science",
+          "institution": "Universitat de Barcelona",
+          "period": "Nov. 2021 — Oct. 2022",
+          "highlights": [
+            "Specialized in cloud architectures and infrastructure automation",
+            "Deep dive into DevOps methodologies and SRE practices",
+            "Hands-on projects with AWS, Azure and Kubernetes",
+            "Focus on CI/CD, monitoring and observability"
+          ]
+        },
+        {
+          "degree": "Bachelor's Degree in Computer Engineering",
+          "field": "Software Engineering",
+          "institution": "Universidad de Extremadura",
+          "period": "2016 — 2020",
+          "highlights": [
+            "Comprehensive training in software development and system architectures",
+            "Specialization in software engineering and agile methodologies",
+            "Final project focused on scalable application development",
+            "Strong foundation in algorithms, data structures and programming"
+          ]
+        }
       ]
     }
   }

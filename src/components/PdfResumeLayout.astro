@@ -11,7 +11,7 @@ export interface ResumeData {
     skills: { icon: string; title: string; items: Array<{ name: string; level: number }> };
     profile: { icon: string; title: string; content: string };
     employment: { icon: string; title: string; jobs: Array<{ title: string; company: string; period: string; responsibilities: string[] }> };
-    education: { icon: string; title: string; degree: string; institution: string; period: string; highlights: string[] };
+    education: { icon: string; title: string; items: Array<{ degree: string; field: string; institution: string; period: string; highlights: string[] }> };
     references: { icon: string; title: string; content: string; contact: string };
   };
 }
@@ -413,6 +413,26 @@ const jobConnector = lang === 'es' ? 'en' : 'at';
             ))}
           </div>
         </div>
+
+        <!-- Education -->
+        <div class="section">
+          <h2 class="section-title">
+            <span class="section-icon">{data.sections.education.icon}</span>
+            {data.sections.education.title}
+          </h2>
+          {data.sections.education.items.map((edu) => (
+            <div class="education-item" style="margin-bottom: 20px;">
+              <h3 class="education-title">{edu.degree}</h3>
+              <p class="education-institution">{edu.institution}</p>
+              <p class="education-period">{edu.period}</p>
+              <ul class="education-highlights">
+                {edu.highlights.map((highlight) => (
+                  <li>{highlight}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
 
       <!-- Right Column -->
@@ -444,24 +464,6 @@ const jobConnector = lang === 'es' ? 'en' : 'at';
                 </ul>
               </div>
             ))}
-          </div>
-        </div>
-
-        <!-- Education -->
-        <div class="section">
-          <h2 class="section-title">
-            <span class="section-icon">{data.sections.education.icon}</span>
-            {data.sections.education.title}
-          </h2>
-          <div class="education-item">
-            <h3 class="education-title">{data.sections.education.degree}</h3>
-            <p class="education-institution">{data.sections.education.institution}</p>
-            <p class="education-period">{data.sections.education.period}</p>
-            <ul class="education-highlights">
-              {data.sections.education.highlights.map((highlight) => (
-                <li>{highlight}</li>
-              ))}
-            </ul>
           </div>
         </div>
 

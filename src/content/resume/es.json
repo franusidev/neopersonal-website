@@ -104,14 +104,31 @@
     "education": {
       "title": "EDUCACIÓN",
       "icon": "🎓",
-      "degree": "Grado en Ciencias de la Computación",
-      "institution": "Universidad Complutense de Madrid",
-      "period": "Septiembre 2016 — Junio 2020",
-      "highlights": [
-        "Graduado con enfoque en Ingeniería de Software y Tecnologías Cloud",
-        "Especializado en sistemas distribuidos y automatización de infraestructura",
-        "Proyecto final: Despliegue de aplicación cloud-native usando contenedorización",
-        "Participante activo en talleres de DevOps y Cloud Computing"
+      "items": [
+        {
+          "degree": "Master en DevOps y Cloud Computing",
+          "field": "Computer Science",
+          "institution": "Universitat de Barcelona",
+          "period": "nov. 2021 — oct. 2022",
+          "highlights": [
+            "Especialización en arquitecturas cloud y automatización de infraestructura",
+            "Profundización en metodologías DevOps y prácticas de SRE",
+            "Proyectos prácticos con AWS, Azure y Kubernetes",
+            "Enfoque en CI/CD, monitorización y observabilidad"
+          ]
+        },
+        {
+          "degree": "Grado en Ingeniería Informática",
+          "field": "Ingeniería de software",
+          "institution": "Universidad de Extremadura",
+          "period": "2016 — 2020",
+          "highlights": [
+            "Formación integral en desarrollo de software y arquitecturas de sistemas",
+            "Especialización en ingeniería de software y metodologías ágiles",
+            "Proyecto final enfocado en desarrollo de aplicaciones escalables",
+            "Base sólida en algoritmos, estructuras de datos y programación"
+          ]
+        }
       ]
     }
   }
