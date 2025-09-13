@@ -14,7 +14,7 @@ const sortedPosts = blogPosts.sort(
 ---
 
 <Layout title="DevOps Blog - Francisco Núñez Sierra">
-  <div class="min-h-screen bg-blue-400 font-mono">
+  <div class="min-h-screen bg-blue-400 font-mono flex flex-col">
     <Navbar currentPage="blog" />
 
     <!-- Hero -->
@@ -26,8 +26,10 @@ const sortedPosts = blogPosts.sort(
           </h1>
         </div>
       </div>
-    </section>    <!-- Blog Posts -->
-    <section class="py-12 px-6">
+    </section>
+
+    <!-- Blog Posts -->
+    <section class="py-12 px-6 flex-grow">
       <div class="max-w-6xl mx-auto">
         <div class="grid gap-12">
           {sortedPosts.map((post: CollectionEntry<"blog">, index: number) => (
