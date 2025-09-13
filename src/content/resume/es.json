@@ -8,61 +8,92 @@
   "sections": {
     "details": {
       "title": "DETALLES",
-      "icon": "📍"
+      "icon": "MapPin"
     },
     "skills": {
       "title": "HABILIDADES",
-      "icon": "💼",
-      "items": [
+      "icon": "Wrench",
+      "categories": [
         {
-          "name": "Plataformas Cloud (Azure/AWS)",
-          "level": 95
+          "name": "CI/CD",
+          "icon": "GitBranch",
+          "items": [
+            "Azure DevOps",
+            "GitHub Actions",
+            "Jenkins",
+            "Terraform",
+            "Bicep"
+          ]
         },
         {
-          "name": "CI/CD y DevOps",
-          "level": 92
+          "name": "Contenedores",
+          "icon": "Server",
+          "items": [
+            "Docker",
+            "Kubernetes",
+            "Helm",
+            "Argo CD",
+            "AKS"
+          ]
         },
         {
-          "name": "Contenedores y Kubernetes",
-          "level": 88
+          "name": "Desarrollo",
+          "icon": "FileCode",
+          "items": [
+            "Python",
+            "Bash",
+            "TypeScript",
+            ".NET",
+            "Java"
+          ]
         },
         {
-          "name": "Infraestructura como Código",
-          "level": 85
+          "name": "Monitorización",
+          "icon": "Zap",
+          "items": [
+            "Azure Monitor",
+            "Prometheus",
+            "Grafana"
+          ]
         },
         {
-          "name": "Seguridad y Monitorización",
-          "level": 80
+          "name": "Seguridad",
+          "icon": "Shield",
+          "items": [
+            "Trivy",
+            "SonarQube",
+            "GitHub Advanced Security"
+          ]
         }
       ]
     },
     "profile": {
       "title": "Sobre Mi",
-      "icon": "👤",
+      "icon": "User",
       "content": "Ingeniero DevOps experimentado con experiencia en plataformas cloud Azure y AWS. Certificado Azure DevOps Engineer Expert (AZ-400) y Azure Developer (AZ-204) con historial comprobado en diseño e implementación de pipelines CI/CD escalables, orquestación de contenedores y automatización de infraestructura. Apasionado por construir arquitecturas cloud resilientes y optimizar flujos de desarrollo para organizaciones a escala empresarial."
     },
     "employment": {
       "title": "HISTORIAL LABORAL",
-      "icon": "💼",
+      "icon": "Briefcase",
       "jobs": [
         {
           "title": "Ingeniero DevOps",
           "company": "Atos",
+          "logo": "/experience/atos_logo.jpg",
           "period": "2022 — Presente",
           "responsibilities": [
             "Ingeniería DevOps a tiempo completo con experiencia en stack Azure para organización internacional",
             "Administrador de Azure DevOps gestionando más de 2000 repositorios y operaciones CI/CD a escala empresarial",
-            "Creación de tareas y extensiones personalizadas para monitorización CI/CD interna y cumplimiento SOX",
-            "Diseño de estrategias integrales de CI/CD incluyendo ramificación Git, QA, testing y seguridad",
+            "Creación de un framework de procedimientos, plantillas, tareas y extensiones personalizadas para monitorización de procesos CI/CD y cumplimiento SOX",
             "Construcción y mantenimiento de plantillas reutilizables de pipelines CI/CD para múltiples lenguajes y frameworks",
             "Diseño de soluciones CI/CD para proyectos de big data dirigidos a Databricks, Data Factory y Power BI",
-            "Implementación de stacks de infraestructura usando Terraform con POCs de Bicep",
-            "Amplia resolución de problemas y optimización en todas las operaciones DevOps"
+            "Implementación de stacks de infraestructura usando Terraform con POCs de Bicep"
           ]
         },
         {
           "title": "Ingeniero Cloud",
           "company": "Accenture",
+          "logo": "/experience/accenture_logo.jpg",
           "period": "2021 — 2022",
           "responsibilities": [
             "Creación de arquitecturas cloud escalables y resilientes para múltiples clientes empresariales",
@@ -74,6 +105,7 @@
         {
           "title": "Desarrollador Full Stack",
           "company": "Secoex",
+          "logo": "/experience/secoex.jpg",
           "period": "2021",
           "responsibilities": [
             "Desarrollo de aplicaciones Android para uso empresarial con frameworks modernos",
@@ -83,6 +115,7 @@
         {
           "title": "Desarrollador Web",
           "company": "SEF",
+          "logo": "/experience/sef.png",
           "period": "2020 — 2021",
           "responsibilities": [
             "Desarrollo web de e-commerce con enfoque en rendimiento y escalabilidad",
@@ -92,9 +125,9 @@
         {
           "title": "Aprendiz DevOps",
           "company": "Sngular",
+          "logo": "/experience/sngular_logo.jpg",
           "period": "2020",
           "responsibilities": [
-            "Completé programa intensivo de prácticas DevOps de 6 meses",
             "Adquirí experiencia en AWS, arquitecturas serverless y flujos avanzados de Git",
             "Construcción de pipelines CI/CD usando Jenkins y GitHub Actions bajo mentoría"
           ]
@@ -103,7 +136,7 @@
     },
     "education": {
       "title": "EDUCACIÓN",
-      "icon": "🎓",
+      "icon": "GraduationCap",
       "items": [
         {
           "degree": "Master en DevOps y Cloud Computing",
@@ -114,7 +147,7 @@
             "Especialización en arquitecturas cloud y automatización de infraestructura",
             "Profundización en metodologías DevOps y prácticas de SRE",
             "Proyectos prácticos con AWS, Azure y Kubernetes",
-            "Enfoque en CI/CD, monitorización y observabilidad"
+            "Enfoque en CI/CD, seguridad, monitorización y observabilidad"
           ]
         },
         {
@@ -124,7 +157,6 @@
           "period": "2016 — 2020",
           "highlights": [
             "Formación integral en desarrollo de software y arquitecturas de sistemas",
-            "Especialización en ingeniería de software y metodologías ágiles",
             "Proyecto final enfocado en desarrollo de aplicaciones escalables",
             "Base sólida en algoritmos, estructuras de datos y programación"
           ]

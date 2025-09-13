@@ -1,4 +1,6 @@
 ---
+import { MapPin, Wrench, User, Briefcase, GraduationCap, GitBranch, Server, FileCode, Zap, Shield, Phone, Mail, Linkedin, Info, Contact, IdCard } from 'lucide-react';
+
 export interface ResumeData {
   name: string;
   title: string;
@@ -8,9 +10,9 @@ export interface ResumeData {
   linkedin: string;
   sections: {
     details: { icon: string; title: string };
-    skills: { icon: string; title: string; items: Array<{ name: string; level: number }> };
+    skills: { icon: string; title: string; categories: Array<{ name: string; icon: string; items: string[] }> };
     profile: { icon: string; title: string; content: string };
-    employment: { icon: string; title: string; jobs: Array<{ title: string; company: string; period: string; responsibilities: string[] }> };
+    employment: { icon: string; title: string; jobs: Array<{ title: string; company: string; logo: string; period: string; responsibilities: string[] }> };
     education: { icon: string; title: string; items: Array<{ degree: string; field: string; institution: string; period: string; highlights: string[] }> };
     references: { icon: string; title: string; content: string; contact: string };
   };
@@ -25,8 +27,24 @@ export interface ResumeLayoutProps {
 
 const { data, lang, title, isPdf = false } = Astro.props as ResumeLayoutProps;
 
-const locationText = lang === 'es' ? 'Madrid, España' : 'Madrid, Spain';
 const jobConnector = lang === 'es' ? 'en' : 'at';
+
+// Icon mapping
+const getIcon = (iconName: string) => {
+  const icons = {
+    MapPin,
+    Wrench,
+    User,
+    Briefcase,
+    GraduationCap,
+    GitBranch,
+    Server,
+    FileCode,
+    Zap,
+    Shield
+  };
+  return icons[iconName as keyof typeof icons];
+};
 ---
 
 <!DOCTYPE html>
@@ -116,29 +134,69 @@ const jobConnector = lang === 'es' ? 'en' : 'at';
       font-size: 11px;
       color: #333;
     }
-    
-    .skill-item {
-      margin-bottom: 10px;
-    }
-    
-    .skill-name {
-      font-weight: bold;
+
+    .detail-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
       font-size: 11px;
-      margin-bottom: 3px;
+      color: #333;
+    }
+
+    .detail-icon {
+      width: 14px;
+      height: 14px;
+      color: #666;
+      flex-shrink: 0;
+    }
+
+    .detail-link {
+      color: #333;
+      text-decoration: none;
+    }
+
+    .detail-link:hover {
+      color: #000;
+      text-decoration: underline;
     }
     
-    .skill-bar {
-      width: 100%;
-      height: 6px;
-      background: #e0e0e0;
-      border-radius: 3px;
-      overflow: hidden;
+    .skill-category {
+      margin-bottom: 8px;
     }
-    
-    .skill-progress {
-      height: 100%;
-      background: #000;
+
+    .skill-category-name {
+      font-weight: 600;
+      font-size: 10px;
+      color: #666;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .skill-category-icon {
+      width: 12px;
+      height: 12px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+    }
+
+    .skill-tag {
+      background: #e8e8e8;
+      color: #333;
       border-radius: 3px;
+      padding: 2px 6px;
+      font-size: 8px;
+      font-weight: 500;
+      white-space: nowrap;
+      letter-spacing: 0.3px;
     }
     
     .profile-text {
@@ -154,10 +212,25 @@ const jobConnector = lang === 'es' ? 'en' : 'at';
       margin-bottom: 20px;
     }
     
+    .job-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 5px;
+    }
+    
+    .job-logo {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+    }
+    
     .job-title {
       font-weight: bold;
       font-size: 13px;
-      margin-bottom: 3px;
+      margin: 0;
     }
     
     .job-period {
@@ -320,6 +393,17 @@ const jobConnector = lang === 'es' ? 'en' : 'at';
         margin-bottom: 15px;
       }
 
+      .job-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+      }
+
+      .job-logo {
+        width: 20px;
+        height: 20px;
+      }
+
       .education-item {
         padding-left: 10px;
       }
@@ -341,14 +425,21 @@ const jobConnector = lang === 'es' ? 'en' : 'at';
       .container {
         max-width: none;
         padding: 10mm;
+        height: 100vh;
+        overflow: hidden;
       }
 
       .grid {
         grid-template-columns: 1fr 2fr;
+        gap: 30px;
       }
 
       body {
         font-size: 10px;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        overflow: hidden;
       }
 
       .profile-img {
@@ -385,39 +476,59 @@ const jobConnector = lang === 'es' ? 'en' : 'at';
         <!-- Details Section -->
         <div class="section">
           <h2 class="section-title">
-            <span class="section-icon">{data.sections.details.icon}</span>
+            <Info className="section-icon" size={16} />
             {data.sections.details.title}
           </h2>
           <div class="details">
-            <p>{locationText}</p>
-            <p>{data.email}</p>
-            <p>{data.phone}</p>
-            <p>{data.linkedin}</p>
+            <div class="detail-item">
+              <MapPin className="detail-icon" size={14} />
+                <span>{data.location}</span>
+            </div>
+            <div class="detail-item">
+              <Mail className="detail-icon" size={14} />
+              <a href={`mailto:${data.email}`} class="detail-link">{data.email}</a>
+            </div>
+            <div class="detail-item">
+              <Phone className="detail-icon" size={14} />
+              <a href={`tel:${data.phone}`} class="detail-link">{data.phone}</a>
+            </div>
+            <div class="detail-item">
+              <Linkedin className="detail-icon" size={14} />
+              <a href={`https://${data.linkedin}`} target="_blank" class="detail-link">{data.linkedin}</a>
+            </div>
           </div>
         </div>
 
         <!-- Skills Section -->
         <div class="section">
           <h2 class="section-title">
-            <span class="section-icon">{data.sections.skills.icon}</span>
+            <Wrench className="section-icon" size={16} />
             {data.sections.skills.title}
           </h2>
           <div class="skills">
-            {data.sections.skills.items.map((skill) => (
-              <div class="skill-item">
-                <div class="skill-name">{skill.name}</div>
-                <div class="skill-bar">
-                  <div class="skill-progress" style={`width: ${skill.level}%`}></div>
+            {data.sections.skills.categories.map((category) => {
+              const IconComponent = getIcon(category.icon);
+              return (
+                <div class="skill-category">
+                  <div class="skill-category-name">
+                    {IconComponent && <IconComponent className="skill-category-icon" size={12} />}
+                    {category.name}
+                  </div>
+                  <div class="skill-tags">
+                    {category.items.map((skill) => (
+                      <span class="skill-tag">{skill}</span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
         <!-- Education -->
         <div class="section">
           <h2 class="section-title">
-            <span class="section-icon">{data.sections.education.icon}</span>
+            <GraduationCap className="section-icon" size={16} />
             {data.sections.education.title}
           </h2>
           {data.sections.education.items.map((edu) => (
@@ -440,7 +551,7 @@ const jobConnector = lang === 'es' ? 'en' : 'at';
         <!-- Profile Section -->
         <div class="section">
           <h2 class="section-title">
-            <span class="section-icon">{data.sections.profile.icon}</span>
+            <User className="section-icon" size={16} />
             {data.sections.profile.title}
           </h2>
           <p class="profile-text">{data.sections.profile.content}</p>
@@ -449,13 +560,16 @@ const jobConnector = lang === 'es' ? 'en' : 'at';
         <!-- Employment History -->
         <div class="section">
           <h2 class="section-title">
-            <span class="section-icon">{data.sections.employment.icon}</span>
+            <Briefcase className="section-icon" size={16} />
             {data.sections.employment.title}
           </h2>
           <div class="jobs">
             {data.sections.employment.jobs.map((job) => (
               <div class="job">
-                <h3 class="job-title">{job.title} {jobConnector} {job.company}</h3>
+                <div class="job-header">
+                  <img src={job.logo} alt={`${job.company} logo`} class="job-logo" />
+                  <h3 class="job-title">{job.title} {jobConnector} {job.company}</h3>
+                </div>
                 <p class="job-period">{job.period}</p>
                 <ul class="job-responsibilities">
                   {job.responsibilities.map((resp) => (

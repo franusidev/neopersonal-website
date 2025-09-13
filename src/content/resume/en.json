@@ -8,46 +8,78 @@
   "sections": {
     "details": {
       "title": "DETAILS",
-      "icon": "📍"
+      "icon": "MapPin"
     },
     "skills": {
       "title": "SKILLS",
-      "icon": "💼",
-      "items": [
+      "icon": "Wrench",
+      "categories": [
         {
-          "name": "Cloud Platforms (Azure/AWS)",
-          "level": 95
+          "name": "CI/CD",
+          "icon": "GitBranch",
+          "items": [
+            "Azure DevOps",
+            "GitHub Actions",
+            "Jenkins",
+            "Terraform",
+            "Bicep"
+          ]
         },
         {
-          "name": "CI/CD & DevOps",
-          "level": 92
+          "name": "Containers",
+          "icon": "Server",
+          "items": [
+            "Docker",
+            "Kubernetes",
+            "Helm",
+            "Argo CD",
+            "AKS"
+          ]
         },
         {
-          "name": "Containers & Kubernetes",
-          "level": 88
+          "name": "Development",
+          "icon": "FileCode",
+          "items": [
+            "Python",
+            "Bash",
+            "TypeScript",
+            ".NET",
+            "Java"
+          ]
         },
         {
-          "name": "Infrastructure as Code",
-          "level": 85
+          "name": "Monitoring",
+          "icon": "Zap",
+          "items": [
+            "Azure Monitor",
+            "Prometheus",
+            "Grafana"
+          ]
         },
         {
-          "name": "Security & Monitoring",
-          "level": 80
+          "name": "Security",
+          "icon": "Shield",
+          "items": [
+            "Trivy",
+            "SonarQube",
+            "GitHub Advanced Security"
+          ]
         }
       ]
     },
     "profile": {
       "title": "PROFILE",
-      "icon": "👤",
+      "icon": "User",
       "content": "Experienced DevOps Engineer with expertise in Azure and AWS cloud platforms. Certified Azure DevOps Engineer Expert (AZ-400) and Azure Developer (AZ-204) with proven track record in designing and implementing scalable CI/CD pipelines, container orchestration, and infrastructure automation. Passionate about building resilient cloud architectures and optimizing development workflows for enterprise-scale organizations."
     },
     "employment": {
       "title": "EMPLOYMENT HISTORY",
-      "icon": "💼",
+      "icon": "Briefcase",
       "jobs": [
         {
           "title": "DevOps Engineer",
           "company": "Atos",
+          "logo": "/experience/atos_logo.jpg",
           "period": "2022 — Present",
           "responsibilities": [
             "Full-time DevOps engineering with expertise in Azure stack for international organization",
@@ -63,6 +95,7 @@
         {
           "title": "Cloud Engineer",
           "company": "Accenture",
+          "logo": "/experience/accenture_logo.jpg",
           "period": "2021 — 2022",
           "responsibilities": [
             "Created scalable and resilient cloud architectures for multiple enterprise clients",
@@ -74,6 +107,7 @@
         {
           "title": "Full Stack Developer",
           "company": "Secoex",
+          "logo": "/experience/secoex.jpg",
           "period": "2021",
           "responsibilities": [
             "Developed Android applications for enterprise usage with modern frameworks",
@@ -83,6 +117,7 @@
         {
           "title": "Web Developer",
           "company": "SEF",
+          "logo": "/experience/sef.png",
           "period": "2020 — 2021",
           "responsibilities": [
             "E-commerce web development with focus on performance and scalability",
@@ -92,6 +127,7 @@
         {
           "title": "DevOps Apprentice",
           "company": "Sngular",
+          "logo": "/experience/sngular_logo.jpg",
           "period": "2020",
           "responsibilities": [
             "Completed 6-month intensive DevOps internship program",
@@ -103,7 +139,7 @@
     },
     "education": {
       "title": "EDUCATION",
-      "icon": "🎓",
+      "icon": "GraduationCap",
       "items": [
         {
           "degree": "Master in DevOps and Cloud Computing",
