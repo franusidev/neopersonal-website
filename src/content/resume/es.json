@@ -68,7 +68,7 @@
       ]
     },
     "profile": {
-      "title": "Sobre Mi",
+      "title": "PERFIL PROFESIONAL",
       "icon": "User",
       "content": "Ingeniero DevOps experimentado con experiencia en plataformas cloud Azure y AWS. Certificado Azure DevOps Engineer Expert (AZ-400) y Azure Developer (AZ-204) con historial comprobado en diseño e implementación de pipelines CI/CD escalables, orquestación de contenedores y automatización de infraestructura. Apasionado por construir arquitecturas cloud resilientes y optimizar flujos de desarrollo para organizaciones a escala empresarial."
     },
